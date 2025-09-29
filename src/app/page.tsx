@@ -15,7 +15,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="space-y-6"
             >
               <div className="flex justify-center mb-8">
@@ -46,7 +46,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Link
@@ -54,14 +54,14 @@ export default function Home() {
                 className="fun-button flex items-center space-x-2 group"
               >
                 <span>作品を見る</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 hover-translate" />
               </Link>
 
               <Link
                 href="/profile"
-                className="px-8 py-3 border-2 border-gray-600 rounded-full text-gray-800 font-medium hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center space-x-2 group"
+                className="px-8 py-3 border-2 border-gray-600 rounded-full text-gray-800 font-medium hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center space-x-2 group"
               >
-                <Heart className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                <Heart className="w-5 h-5 hover-scale" />
                 <span>プロフィール</span>
               </Link>
             </motion.div>
@@ -134,7 +134,7 @@ export default function Home() {
                   key={feature.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
                   className="fun-card p-8 text-center group hover:scale-105"
                 >
@@ -171,7 +171,7 @@ export default function Home() {
               className="cta-white-button inline-flex items-center space-x-2 text-lg group"
             >
               <span>お話ししましょう</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-5 h-5 hover-translate" />
             </Link>
           </motion.div>
         </div>

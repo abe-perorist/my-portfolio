@@ -82,7 +82,7 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center space-y-8 max-w-md mx-auto px-4"
         >
           <motion.div
@@ -122,7 +122,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-center space-y-8"
           >
             <div className="flex justify-center mb-8">
@@ -156,7 +156,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -172,7 +172,7 @@ export default function ContactPage() {
                   key={method.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
                   className="fun-card p-8 text-center hover:scale-105"
                 >
@@ -197,7 +197,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -208,7 +208,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-soft"
           >
@@ -225,7 +225,7 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors"
                   placeholder="山田太郎"
                 />
               </div>
@@ -242,7 +242,7 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -258,7 +258,7 @@ export default function ContactPage() {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors"
                 >
                   <option value="">選択してください</option>
                   {subjectOptions.map((option) => (
@@ -281,7 +281,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-blue focus:border-transparent outline-none transition-colors resize-none"
                   placeholder="お気軽にメッセージをどうぞ！&#10;&#10;・プロジェクトの概要&#10;・ご相談内容&#10;・希望する開始時期&#10;&#10;など、どんなことでも大丈夫です 😊"
                 />
               </div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                 whileTap={{ scale: 0.98 }}
                 disabled={!formData.name || !formData.email || !formData.subject || !formData.message}
               >
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                <Send className="w-5 h-5 hover-translate" />
                 <span>メッセージを送信</span>
               </motion.button>
             </form>
@@ -308,17 +308,17 @@ export default function ContactPage() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
                 >
-                  <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                  <Twitter className="w-5 h-5 hover-scale" />
                 </a>
                 <a
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
                 >
-                  <Github className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                  <Github className="w-5 h-5 hover-scale" />
                 </a>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-white space-y-6"
           >

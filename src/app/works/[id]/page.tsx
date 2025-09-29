@@ -110,14 +110,14 @@ export default function WorkDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             {/* 戻るボタン */}
             <Link
               href="/works"
-              className="inline-flex items-center space-x-2 text-gray-600 hover:text-accent-blue transition-colors duration-200 mb-8 group"
+              className="inline-flex items-center space-x-2 text-gray-600 hover:text-accent-blue transition-colors mb-8 group"
             >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
+              <ArrowLeft className="w-4 h-4 hover-translate" style={{ transform: 'scaleX(-1)' }} />
               <span>作品一覧に戻る</span>
             </Link>
 
@@ -152,7 +152,7 @@ export default function WorkDetailPage() {
                   href={work.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 inline-flex items-center space-x-2 group"
+                  className="px-6 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth inline-flex items-center space-x-2 group"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
@@ -169,7 +169,7 @@ export default function WorkDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">成果・インパクト</h2>
@@ -179,7 +179,7 @@ export default function WorkDetailPage() {
                   key={key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
                   className="text-center p-6 bg-gray-50 rounded-2xl"
                 >
@@ -198,7 +198,7 @@ export default function WorkDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
@@ -211,7 +211,7 @@ export default function WorkDetailPage() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-soft"
             >
@@ -238,7 +238,7 @@ export default function WorkDetailPage() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-soft"
             >
@@ -265,7 +265,7 @@ export default function WorkDetailPage() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-soft"
             >
@@ -297,7 +297,7 @@ export default function WorkDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -335,7 +335,7 @@ export default function WorkDetailPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">学びと次への改善</h2>
@@ -346,7 +346,7 @@ export default function WorkDetailPage() {
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                     viewport={{ once: true }}
                     className="flex items-start space-x-3"
                   >
