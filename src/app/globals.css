@@ -54,19 +54,77 @@ body {
   background: #00A8CC;
 }
 
-/* 遊び心のあるホバーエフェクト */
+/* ==========================================================================
+   MOTION DESIGN SYSTEM - 統一されたアニメーション設定
+   ========================================================================== */
+
+/* アニメーション時間の定義 */
+:root {
+  /* Duration Scale - 用途別の統一された時間設定 */
+  --duration-instant: 150ms;    /* マイクロインタラクション（ホバー、フォーカス） */
+  --duration-fast: 250ms;       /* UIの状態変化（ボタン、リンク） */
+  --duration-normal: 400ms;     /* 標準的なアニメーション（カード、モーダル） */
+  --duration-slow: 600ms;       /* 大きな変化（ページ要素の登場） */
+  --duration-emphasis: 800ms;   /* 注意を引くアニメーション */
+
+  /* Easing Functions - 用途別のイージング */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);        /* 標準の出現 */
+  --ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);        /* 消失 */
+  --ease-in-out: cubic-bezier(0.445, 0.05, 0.55, 0.95);    /* 双方向 */
+  --ease-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);     /* 弾力のある動き */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);             /* Material Design */
+
+  /* Transform Values - 統一されたスケールと移動値 */
+  --scale-micro: 1.02;          /* 微細なスケール */
+  --scale-small: 1.05;          /* 小さなスケール */
+  --scale-medium: 1.1;          /* 中程度のスケール */
+  --scale-large: 1.15;          /* 大きなスケール */
+
+  --translate-micro: 2px;       /* 微細な移動 */
+  --translate-small: 4px;       /* 小さな移動 */
+  --translate-medium: 8px;      /* 中程度の移動 */
+  --translate-large: 12px;      /* 大きな移動 */
+}
+
+/* 統一されたホバーエフェクト */
+.hover-lift {
+  transition: transform var(--duration-fast) var(--ease-back),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: scale(var(--scale-micro)) translateY(calc(-1 * var(--translate-micro)));
+}
+
+.hover-scale {
+  transition: transform var(--duration-instant) var(--ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(var(--scale-small));
+}
+
+.hover-translate {
+  transition: transform var(--duration-instant) var(--ease-out);
+}
+
+.hover-translate:hover {
+  transform: translateX(var(--translate-small));
+}
+
+/* 遊び心のあるホバーエフェクト（統一版） */
 .bounce-hover {
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform var(--duration-fast) var(--ease-back);
 }
 
 .bounce-hover:hover {
-  transform: scale(1.05) translateY(-2px);
+  transform: scale(var(--scale-small)) translateY(calc(-1 * var(--translate-micro)));
 }
 
-/* フワッとした影のエフェクト */
+/* フワッとした影のエフェクト（統一版） */
 .soft-shadow {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .soft-shadow:hover {
@@ -90,7 +148,7 @@ body {
   }
 }
 
-/* 遊び心のあるボタンスタイル */
+/* 遊び心のあるボタンスタイル（統一版） */
 .fun-button {
   background: linear-gradient(135deg, #00D4FF 0%, #00FF88 100%);
   border: none;
@@ -98,31 +156,32 @@ body {
   color: white;
   font-weight: 600;
   padding: 0.75rem 2rem;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all var(--duration-fast) var(--ease-back);
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .fun-button:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(calc(-1 * var(--translate-micro))) scale(var(--scale-micro));
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
 
 .fun-button:active {
   transform: translateY(0) scale(0.98);
+  transition: all var(--duration-instant) var(--ease-out);
 }
 
-/* カードスタイル */
+/* カードスタイル（統一版） */
 .fun-card {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all var(--duration-normal) var(--ease-back);
 }
 
 .fun-card:hover {
-  transform: translateY(-5px) rotate(1deg);
+  transform: translateY(calc(-1 * var(--translate-medium))) rotate(1deg);
   box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
 }
 
@@ -148,7 +207,7 @@ body {
   text-decoration-color: currentColor;
 }
 
-/* 白背景のCTAボタン用 */
+/* 白背景のCTAボタン用（統一版） */
 .cta-white-button {
   background-color: #ffffff;
   color: #0066cc;
@@ -156,13 +215,29 @@ body {
   border-radius: 1.5rem;
   font-weight: 600;
   padding: 0.75rem 2rem;
-  transition: all 0.3s ease;
+  transition: all var(--duration-fast) var(--ease-back);
   box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
 }
 
 .cta-white-button:hover {
   background-color: #0066cc;
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(calc(-1 * var(--translate-micro))) scale(var(--scale-micro));
   box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+}
+
+.cta-white-button:active {
+  transform: translateY(0) scale(0.98);
+  transition: all var(--duration-instant) var(--ease-out);
+}
+
+/* 統一されたborder/backgroundトランジション */
+.transition-colors {
+  transition: color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.transition-all-smooth {
+  transition: all var(--duration-fast) var(--ease-out);
 }

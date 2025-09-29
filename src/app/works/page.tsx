@@ -68,7 +68,7 @@ export default function WorksPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -91,7 +91,7 @@ export default function WorksPage() {
                 key={work.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="group"
               >
                 <div className="fun-card p-8 h-full">
@@ -128,7 +128,7 @@ export default function WorksPage() {
 
                   {/* PdMスキルタグ */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
+                    <h4 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                       <Target className="w-4 h-4 mr-2" />
                       PdMとしての工夫ポイント
                     </h4>
@@ -146,12 +146,12 @@ export default function WorksPage() {
 
                   {/* 技術スタック */}
                   <div className="mb-8">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3">技術スタック</h4>
+                    <h4 className="text-sm font-medium text-gray-800 mb-3">技術スタック</h4>
                     <div className="flex flex-wrap gap-2">
                       {work.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-lg"
+                          className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-lg font-medium"
                         >
                           {tech}
                         </span>
@@ -166,23 +166,23 @@ export default function WorksPage() {
                       className="flex-1 fun-button text-center flex items-center justify-center space-x-2 group"
                     >
                       <span>詳細を見る</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                      <ArrowRight className="w-4 h-4 hover-translate" />
                     </Link>
                     <a
                       href={work.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center justify-center group"
+                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center justify-center group"
                     >
-                      <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                      <ExternalLink className="w-4 h-4 hover-scale" />
                     </a>
                     <a
                       href={work.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center justify-center group"
+                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center justify-center group"
                     >
-                      <Github className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                      <Github className="w-4 h-4 hover-scale" />
                     </a>
                   </div>
                 </div>
@@ -198,7 +198,7 @@ export default function WorksPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
@@ -213,7 +213,7 @@ export default function WorksPage() {
               className="fun-button inline-flex items-center space-x-2 group"
             >
               <span>お問い合わせ</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-5 h-5 hover-translate" />
             </Link>
           </motion.div>
         </div>

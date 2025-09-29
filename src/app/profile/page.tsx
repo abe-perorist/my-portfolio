@@ -74,7 +74,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-center space-y-8"
           >
             {/* プロフィール画像 */}
@@ -129,7 +129,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -163,7 +163,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -179,13 +179,13 @@ export default function ProfilePage() {
                   key={hobby.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
                   className="fun-card p-6 text-center hover:scale-105"
                 >
                   <IconComponent className="w-8 h-8 text-accent-blue mx-auto mb-4" />
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{hobby.name}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{hobby.description}</p>
+                  <p className="text-gray-700 text-sm leading-relaxed">{hobby.description}</p>
                 </motion.div>
               )
             })}
@@ -199,7 +199,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -213,7 +213,7 @@ export default function ProfilePage() {
                 key={skill.category}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 viewport={{ once: true }}
                 className="bg-gray-50 rounded-2xl p-6"
               >
@@ -243,7 +243,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -294,7 +294,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">つながりましょう！</h2>
@@ -309,7 +309,7 @@ export default function ProfilePage() {
               >
                 <Mail className="w-5 h-5" />
                 <span>お問い合わせフォーム</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                <ArrowRight className="w-4 h-4 hover-translate" />
               </Link>
               
               <div className="flex space-x-4">
@@ -317,17 +317,17 @@ export default function ProfilePage() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
                 >
-                  <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                  <Twitter className="w-5 h-5 hover-scale" />
                 </a>
                 <a
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
                 >
-                  <Github className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                  <Github className="w-5 h-5 hover-scale" />
                 </a>
               </div>
             </div>

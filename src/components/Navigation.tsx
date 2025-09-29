@@ -39,9 +39,9 @@ const Navigation = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center space-x-2 text-gray-800 hover:text-accent-blue transition-colors duration-200 group"
+                  className="flex items-center space-x-2 text-gray-800 hover:text-accent-blue transition-colors group"
                 >
-                  <IconComponent className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                  <IconComponent className="w-4 h-4 hover-scale" />
                   <span className="font-medium">{item.label}</span>
                 </Link>
               )
@@ -52,7 +52,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-gray-100 transition-colors duration-200"
+              className="p-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-gray-100 transition-colors"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -75,7 +75,7 @@ const Navigation = () => {
             opacity: 0,
           }
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50"
       >
         <div className="px-4 py-2 space-y-1">
@@ -86,11 +86,11 @@ const Navigation = () => {
                 key={item.href}
                 initial={{ x: -20, opacity: 0 }}
                 animate={isOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <Link
                   href={item.href}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-accent-blue/10 transition-colors duration-200"
+                  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-accent-blue/10 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <IconComponent className="w-5 h-5" />
