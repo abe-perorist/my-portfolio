@@ -131,58 +131,277 @@ body {
   box-shadow: 0 10px 25px -3px rgba(0, 212, 255, 0.3), 0 4px 6px -2px rgba(0, 212, 255, 0.05);
 }
 
-/* グラデーション背景 */
-.gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* ==========================================================================
+   POP DESIGN SYSTEM - ポップで立体的なデザインシステム
+   ========================================================================== */
+
+/* ビビッドカラーパレット（単色ベース） */
+:root {
+  /* メインカラー: 彩度の高いビビッドブルー */
+  --color-primary: #0066FF;           /* メインのビビッドブルー */
+  --color-primary-light: #3384FF;     /* ライトバリエーション */
+  --color-primary-dark: #0052CC;      /* ダークバリエーション */
+  
+  /* アクセントカラー */
+  --color-accent: #FF4081;            /* ビビッドピンク */
+  --color-secondary: #00E676;         /* ビビッドグリーン */
+  --color-warning: #FF9100;           /* オレンジ */
+  --color-success: #00C853;           /* 成功グリーン */
+  
+  /* ニュートラルカラー */
+  --color-white: #FFFFFF;
+  --color-light-gray: #F8F9FA;       /* 極薄グレー背景 */
+  --color-gray: #6C757D;              /* テキストグレー */
+  --color-dark: #212529;              /* ダークテキスト */
+  
+  /* 立体感のためのシャドウ定義 */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 12px rgba(0, 102, 255, 0.15);
+  --shadow-strong: 0 8px 24px rgba(0, 102, 255, 0.25);
+  --shadow-pop: 0 12px 32px rgba(0, 102, 255, 0.3);
+  
+  /* ボーダー定義 */
+  --border-thin: 2px;
+  --border-medium: 3px;
+  --border-thick: 4px;
+  --border-radius: 16px;
+  --border-radius-small: 12px;
+  --border-radius-large: 24px;
 }
 
-.gradient-text {
-  color: #00A8CC; /* フォールバック色 */
-  background: linear-gradient(135deg, #00D4FF 0%, #00FF88 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  /* Safari対応 */
-  @supports not (-webkit-background-clip: text) {
-    color: #00A8CC;
-  }
+/* ポップなテキスト（単色） */
+.pop-text {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 102, 255, 0.1);
 }
 
-/* 遊び心のあるボタンスタイル（統一版） */
-.fun-button {
-  background: linear-gradient(135deg, #00D4FF 0%, #00FF88 100%);
-  border: none;
-  border-radius: 1.5rem;
+/* 立体的なボタンスタイル */
+.pop-button {
+  background: var(--color-primary);
+  border: var(--border-medium) solid var(--color-primary-dark);
+  border-radius: var(--border-radius);
   color: white;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  position: relative;
   transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(0);
+  cursor: pointer;
 }
 
-.fun-button:hover {
-  transform: translateY(calc(-1 * var(--translate-micro))) scale(var(--scale-micro));
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+.pop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+  background: var(--color-primary-light);
 }
 
-.fun-button:active {
-  transform: translateY(0) scale(0.98);
+.pop-button:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-subtle);
   transition: all var(--duration-instant) var(--ease-out);
 }
 
-/* カードスタイル（統一版） */
-.fun-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1.5rem;
-  transition: all var(--duration-normal) var(--ease-back);
+/* 白背景の立体ボタン */
+.pop-button-white {
+  background: var(--color-white);
+  border: var(--border-medium) solid var(--color-primary);
+  border-radius: var(--border-radius);
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  position: relative;
+  transition: all var(--duration-fast) var(--ease-back);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(0);
+  cursor: pointer;
 }
 
-.fun-card:hover {
-  transform: translateY(calc(-1 * var(--translate-medium))) rotate(1deg);
-  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+.pop-button-white:hover {
+  transform: translateY(-2px);
+  background: var(--color-primary);
+  color: white;
+  box-shadow: var(--shadow-strong);
+}
+
+.pop-button-white:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--duration-instant) var(--ease-out);
+}
+
+/* 立体的なカードスタイル */
+.pop-card {
+  background: var(--color-white);
+  border: var(--border-medium) solid var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: all var(--duration-normal) var(--ease-back);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(0) rotate(0deg);
+  position: relative;
+}
+
+.pop-card:hover {
+  transform: translateY(-4px) rotate(1deg);
+  box-shadow: var(--shadow-pop);
+  border-color: var(--color-primary-light);
+}
+
+.pop-card:active {
+  transform: translateY(2px) rotate(0deg);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--duration-instant) var(--ease-out);
+}
+
+/* ニュートラルなカード（グレーボーダー） */
+.pop-card-neutral {
+  background: var(--color-white);
+  border: var(--border-thin) solid var(--color-gray);
+  border-radius: var(--border-radius-small);
+  padding: 1rem;
+  transition: all var(--duration-fast) var(--ease-back);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(0);
+}
+
+.pop-card-neutral:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-primary);
+}
+
+/* アイコン背景（立体効果） */
+.pop-icon {
+  background: var(--color-primary);
+  border: var(--border-medium) solid var(--color-primary-dark);
+  border-radius: var(--border-radius);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: all var(--duration-fast) var(--ease-back);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(0);
+}
+
+.pop-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-strong);
+  background: var(--color-primary-light);
+}
+
+/* カラーバリエーション */
+.pop-icon-accent {
+  background: var(--color-accent);
+  border-color: #E91E63;
+}
+
+.pop-icon-accent:hover {
+  background: #FF6090;
+}
+
+.pop-icon-secondary {
+  background: var(--color-secondary);
+  border-color: #00C853;
+}
+
+.pop-icon-secondary:hover {
+  background: #4AEF8A;
+}
+
+.pop-icon-warning {
+  background: var(--color-warning);
+  border-color: #FF6F00;
+}
+
+.pop-icon-warning:hover {
+  background: #FFB74D;
+}
+
+/* バッジ・タグスタイル */
+.pop-badge {
+  background: var(--color-primary);
+  border: var(--border-thin) solid var(--color-primary-dark);
+  border-radius: var(--border-radius-small);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--duration-fast) var(--ease-back);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(0);
+}
+
+.pop-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  background: var(--color-primary-light);
+}
+
+/* バッジカラーバリエーション */
+.pop-badge-accent {
+  background: var(--color-accent);
+  border-color: #E91E63;
+}
+
+.pop-badge-accent:hover {
+  background: #FF6090;
+}
+
+.pop-badge-secondary {
+  background: var(--color-secondary);
+  border-color: #00C853;
+}
+
+.pop-badge-secondary:hover {
+  background: #4AEF8A;
+}
+
+.pop-badge-neutral {
+  background: var(--color-white);
+  border: var(--border-thin) solid var(--color-gray);
+  color: var(--color-dark);
+}
+
+.pop-badge-neutral:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* 背景スタイル（グラデーション置き換え） */
+.pop-bg-light {
+  background: var(--color-light-gray);
+}
+
+.pop-bg-white {
+  background: var(--color-white);
+}
+
+/* セクション背景（微細なパターン） */
+.pop-section {
+  background: var(--color-white);
+  position: relative;
+}
+
+.pop-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 102, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 64, 129, 0.02) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 /* アクセシビリティ向上のためのコントラスト強化 */

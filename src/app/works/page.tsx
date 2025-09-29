@@ -61,7 +61,7 @@ const works = [
 
 export default function WorksPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-blue/5">
+    <div className="min-h-screen pop-bg-light">
       {/* ヒーローセクション */}
       <section className="py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function WorksPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              <span className="gradient-text">作品一覧</span>
+              <span className="pop-text">作品一覧</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               企画から実装まで一貫して携わったプロダクトたちです。<br />
@@ -94,13 +94,13 @@ export default function WorksPage() {
                 transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="group"
               >
-                <div className="fun-card p-8 h-full">
+                <div className="pop-card h-full">
                   {/* ワークのヘッダー */}
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-3">
                         <h3 className="text-2xl font-bold text-gray-900">{work.title}</h3>
-                        <span className="px-3 py-1 bg-gradient-to-r from-accent-blue to-accent-green text-white text-sm font-medium rounded-full">
+                        <span className="pop-badge text-sm">
                           {work.highlight}
                         </span>
                       </div>
@@ -110,18 +110,18 @@ export default function WorksPage() {
 
                   {/* 統計情報 */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <Users className="w-5 h-5 text-accent-blue mx-auto mb-1" />
+                    <div className="text-center p-3 pop-card-neutral">
+                      <Users className="w-5 h-5 text-blue-600 mx-auto mb-1" />
                       <div className="text-sm font-medium text-gray-900">{work.stats.users}</div>
                       <div className="text-xs text-gray-500">ユーザー</div>
                     </div>
-                    <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <Star className="w-5 h-5 text-accent-green mx-auto mb-1" />
+                    <div className="text-center p-3 pop-card-neutral">
+                      <Star className="w-5 h-5 text-green-600 mx-auto mb-1" />
                       <div className="text-sm font-medium text-gray-900">{work.stats.rating}</div>
                       <div className="text-xs text-gray-500">評価</div>
                     </div>
-                    <div className="text-center p-3 bg-gray-50 rounded-lg">
-                      <Zap className="w-5 h-5 text-accent-orange mx-auto mb-1" />
+                    <div className="text-center p-3 pop-card-neutral">
+                      <Zap className="w-5 h-5 text-orange-600 mx-auto mb-1" />
                       <div className="text-sm font-medium text-gray-900 text-xs">{work.stats.impact}</div>
                     </div>
                   </div>
@@ -136,7 +136,7 @@ export default function WorksPage() {
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 bg-accent-blue/10 text-accent-blue text-sm font-medium rounded-full border border-accent-blue/20"
+                          className="pop-badge-neutral text-sm"
                         >
                           {tag}
                         </span>
@@ -151,7 +151,7 @@ export default function WorksPage() {
                       {work.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-lg font-medium"
+                          className="pop-badge-neutral text-sm"
                         >
                           {tech}
                         </span>
@@ -163,7 +163,7 @@ export default function WorksPage() {
                   <div className="flex space-x-3">
                     <Link
                       href={`/works/${work.id}`}
-                      className="flex-1 fun-button text-center flex items-center justify-center space-x-2 group"
+                      className="flex-1 pop-button text-center flex items-center justify-center space-x-2 group"
                     >
                       <span>詳細を見る</span>
                       <ArrowRight className="w-4 h-4 hover-translate" />
@@ -172,7 +172,8 @@ export default function WorksPage() {
                       href={work.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center justify-center group"
+                      className="pop-button-white flex items-center justify-center group"
+                      style={{ padding: '0.75rem' }}
                     >
                       <ExternalLink className="w-4 h-4 hover-scale" />
                     </a>
@@ -180,7 +181,8 @@ export default function WorksPage() {
                       href={work.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center justify-center group"
+                      className="pop-button-white flex items-center justify-center group"
+                      style={{ padding: '0.75rem' }}
                     >
                       <Github className="w-4 h-4 hover-scale" />
                     </a>
@@ -210,7 +212,7 @@ export default function WorksPage() {
             </p>
             <Link
               href="/contact"
-              className="fun-button inline-flex items-center space-x-2 group"
+              className="pop-button inline-flex items-center space-x-2 group"
             >
               <span>お問い合わせ</span>
               <ArrowRight className="w-5 h-5 hover-translate" />
