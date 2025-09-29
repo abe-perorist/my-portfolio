@@ -152,7 +152,7 @@ export default function WorkDetailPage() {
                   href={work.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 border-2 border-gray-300 rounded-full text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 inline-flex items-center space-x-2 group"
+                  className="px-6 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 inline-flex items-center space-x-2 group"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>

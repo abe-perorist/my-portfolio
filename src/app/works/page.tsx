@@ -172,7 +172,7 @@ export default function WorksPage() {
                       href={work.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-300 rounded-full text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 flex items-center justify-center group"
+                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center justify-center group"
                     >
                       <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                     </a>
@@ -180,7 +180,7 @@ export default function WorksPage() {
                       href={work.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-3 border-2 border-gray-300 rounded-full text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 flex items-center justify-center group"
+                      className="px-4 py-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center justify-center group"
                     >
                       <Github className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                     </a>

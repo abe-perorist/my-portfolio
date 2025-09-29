@@ -317,7 +317,7 @@ export default function ProfilePage() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-300 rounded-full text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
                 >
                   <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                 </a>
@@ -325,7 +325,7 @@ export default function ProfilePage() {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-300 rounded-full text-gray-700 hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 group"
+                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 group"
                 >
                   <Github className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                 </a>
