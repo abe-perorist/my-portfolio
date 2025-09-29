@@ -128,7 +128,7 @@ export default function WorksPage() {
 
                   {/* PdMスキルタグ */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
+                    <h4 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                       <Target className="w-4 h-4 mr-2" />
                       PdMとしての工夫ポイント
                     </h4>
@@ -146,12 +146,12 @@ export default function WorksPage() {
 
                   {/* 技術スタック */}
                   <div className="mb-8">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3">技術スタック</h4>
+                    <h4 className="text-sm font-medium text-gray-800 mb-3">技術スタック</h4>
                     <div className="flex flex-wrap gap-2">
                       {work.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-lg"
+                          className="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-lg font-medium"
                         >
                           {tech}
                         </span>

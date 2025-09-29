@@ -184,7 +184,7 @@ export default function WorkDetailPage() {
                   className="text-center p-6 bg-gray-50 rounded-2xl"
                 >
                   <div className="text-2xl font-bold text-accent-blue mb-2">{String(value)}</div>
-                  <div className="text-sm text-gray-600 capitalize">{key}</div>
+                  <div className="text-sm text-gray-800 capitalize font-medium">{key}</div>
                 </motion.div>
               ))}
             </div>
@@ -226,7 +226,7 @@ export default function WorkDetailPage() {
                     {work.inspiration.insights.map((insight: string, index: number) => (
                       <div key={index} className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{insight}</span>
+                        <span className="text-sm text-gray-800">{insight}</span>
                       </div>
                     ))}
                   </div>
@@ -253,7 +253,7 @@ export default function WorkDetailPage() {
                     {work.planning.strategies.map((strategy: string, index: number) => (
                       <div key={index} className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{strategy}</span>
+                        <span className="text-sm text-gray-800">{strategy}</span>
                       </div>
                     ))}
                   </div>
@@ -280,7 +280,7 @@ export default function WorkDetailPage() {
                     {work.technology.decisions.map((decision: string, index: number) => (
                       <div key={index} className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-700">{decision}</span>
+                        <span className="text-sm text-gray-800">{decision}</span>
                       </div>
                     ))}
                   </div>
@@ -351,7 +351,7 @@ export default function WorkDetailPage() {
                     className="flex items-start space-x-3"
                   >
                     <Star className="w-5 h-5 text-accent-orange flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 leading-relaxed">{learning}</span>
+                    <span className="text-gray-800 leading-relaxed">{learning}</span>
                   </motion.div>
                 ))}
               </div>
