@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Site - 遊び心と仕組みづくりでサービスを形にするPdM
 
-## Getting Started
+プロダクトマネージャー向けのポートフォリオサイトです。遊び心のあるデザインと親しみやすいトーンで、PdMとしてのスキルと経験をアピールします。
 
-First, run the development server:
+## 🎯 コンセプト
+
+- **遊び心**: 堅苦しくない、使っていて楽しいUI/UX
+- **仕組みづくり**: 企画から実装まで一貫したプロダクト開発
+- **ユーザー視点**: 趣味仲間のような親しみやすさを重視
+
+## 🚀 技術スタック
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Language**: TypeScript
+- **Deployment**: Vercel
+
+## 📱 ページ構成
+
+### ホーム (`/`)
+- 視覚的インパクトのあるヒーローセクション
+- キャッチコピー「遊び心と仕組みづくりでサービスを形にする」
+- 特徴的な価値観の紹介
+
+### 作品一覧 (`/works`)
+- カード表示による作品ギャラリー
+- PdMスキルのバッジ・タグ機能
+- 統計情報によるインパクトの可視化
+
+### 作品詳細 (`/works/[id]`)
+- **着想のきっかけ（課題発見）**
+- **企画・設計での工夫と論理**
+- **技術選定の理由**
+以上3要素でPdMとしての思考プロセスをアピール
+
+### プロフィール (`/profile`)
+- カジュアルな語り口での自己紹介
+- 趣味・興味の紹介
+- 経歴タイムライン
+
+### お問い合わせ (`/contact`)
+- フレンドリーな導線設計
+- 複数の連絡手段の提示
+- インタラクティブなフォーム
+
+## 🎨 デザインシステム
+
+### カラーパレット
+- **メインカラー**: 白（清潔感）
+- **アクセントカラー**: 
+  - ネオンターコイズ (`#00D4FF`)
+  - ビビッドグリーン (`#00FF88`)
+  - エネルギッシュオレンジ (`#FF6B35`)
+
+### アニメーション
+- ホバー時のぷにっとしたエフェクト
+- スクロール時のフワッとした表示
+- 遊び心のある回転・スケールアニメーション
+
+## 🛠 開発・デプロイ手順
+
+### ローカル開発
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバー起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Vercelデプロイ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. GitHubリポジトリと連携
+2. Vercelプロジェクト作成
+3. 自動デプロイが実行される
 
-## Learn More
+```bash
+# ビルド確認
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# 本番環境と同じ条件でプレビュー
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 プロジェクト構造
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                    # App Router pages
+│   ├── contact/           # お問い合わせページ
+│   ├── profile/           # プロフィールページ
+│   ├── works/            # 作品一覧・詳細
+│   ├── globals.css       # グローバルスタイル
+│   ├── layout.tsx        # 共通レイアウト
+│   └── page.tsx          # ホームページ
+├── components/            # 再利用可能コンポーネント
+│   └── Navigation.tsx    # ナビゲーション
+└── lib/                  # ユーティリティ関数（予定）
 
-## Deploy on Vercel
+public/
+├── images/               # 画像ファイル
+└── ...                  # その他静的ファイル
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 PdMアピールポイント
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. 企画力
+- ユーザーインタビューによる課題発見
+- 競合分析と差別化戦略
+- ジョブ理論に基づく機能設計
+
+### 2. 仕組みづくり
+- データドリブンな改善サイクル
+- 習慣化心理学を活用した設計
+- スケーラブルな技術選定
+
+### 3. ユーザー視点
+- ユーザビリティテスト実施
+- A/Bテストによる最適化
+- 定性・定量データの両輪活用
+
+## 🔧 カスタマイズ
+
+### 作品データの更新
+`src/app/works/page.tsx` と `src/app/works/[id]/page.tsx` の作品データを実際のプロジェクトに合わせて更新してください。
+
+### SNSリンクの設定
+`src/components/Navigation.tsx` と各ページのSNSリンクを実際のアカウントURLに変更してください。
+
+### 画像の追加
+`public/images/` ディレクトリに作品画像を配置し、パスを更新してください。
+
+## 📞 お問い合わせ
+
+このポートフォリオサイトについてご質問がございましたら、お気軽にお問い合わせください。
+
+---
+
+**遊び心と仕組みづくりで、一緒に素敵なプロダクトを作りましょう！** ✨
