@@ -59,7 +59,7 @@ export default function Home() {
 
               <Link
                 href="/profile"
-                className="px-8 py-3 border-2 border-gray-300 rounded-full text-gray-700 font-medium hover:border-accent-blue hover:text-accent-blue transition-colors duration-200 flex items-center space-x-2 group"
+                className="px-8 py-3 border-2 border-gray-600 rounded-full text-gray-800 font-medium hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all duration-200 flex items-center space-x-2 group"
               >
                 <Heart className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                 <span>プロフィール</span>
@@ -168,7 +168,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center space-x-2 bg-white text-accent-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-200 group"
+              className="cta-white-button inline-flex items-center space-x-2 text-lg group"
             >
               <span>お話ししましょう</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />

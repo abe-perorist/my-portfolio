@@ -79,11 +79,15 @@ body {
 }
 
 .gradient-text {
+  color: #00A8CC; /* フォールバック色 */
   background: linear-gradient(135deg, #00D4FF 0%, #00FF88 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
+  /* Safari対応 */
+  @supports not (-webkit-background-clip: text) {
+    color: #00A8CC;
+  }
 }
 
 /* 遊び心のあるボタンスタイル */
@@ -96,6 +100,7 @@ body {
   padding: 0.75rem 2rem;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .fun-button:hover {
@@ -119,4 +124,45 @@ body {
 .fun-card:hover {
   transform: translateY(-5px) rotate(1deg);
   box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+}
+
+/* アクセシビリティ向上のためのコントラスト強化 */
+.text-contrast-high {
+  color: #1a1a1a;
+}
+
+.bg-white-safe {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.link-contrast {
+  color: #0066cc;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.link-contrast:hover {
+  color: #004499;
+  text-decoration-color: currentColor;
+}
+
+/* 白背景のCTAボタン用 */
+.cta-white-button {
+  background-color: #ffffff;
+  color: #0066cc;
+  border: 2px solid #0066cc;
+  border-radius: 1.5rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+}
+
+.cta-white-button:hover {
+  background-color: #0066cc;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
 }
