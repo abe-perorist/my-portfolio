@@ -31,10 +31,50 @@ export default function ProfilePage() {
   ]
 
   const skills = [
-    { category: "プロダクト企画", items: ["ユーザーリサーチ", "競合分析", "ジョブ理論", "行動設計"], color: "from-blue-500 to-cyan-500" },
-    { category: "UI/UX", items: ["Figma", "プロトタイピング", "ユーザビリティテスト", "デザインシステム"], color: "from-purple-500 to-pink-500" },
-    { category: "開発", items: ["React/Next.js", "TypeScript", "Node.js", "Firebase"], color: "from-green-500 to-emerald-500" },
-    { category: "データ分析", items: ["Google Analytics", "A/Bテスト", "SQL", "データビジュアライゼーション"], color: "from-orange-500 to-red-500" },
+    { 
+      category: "プロダクト企画", 
+      items: [
+        { name: "ユーザーリサーチ", level: 90 },
+        { name: "競合分析", level: 85 },
+        { name: "ジョブ理論", level: 80 },
+        { name: "行動設計", level: 75 }
+      ], 
+      color: "#0066FF",
+      icon: "🎯"
+    },
+    { 
+      category: "UI/UX", 
+      items: [
+        { name: "Figma", level: 85 },
+        { name: "プロトタイピング", level: 80 },
+        { name: "ユーザビリティテスト", level: 75 },
+        { name: "デザインシステム", level: 70 }
+      ], 
+      color: "#FF4081",
+      icon: "🎨"
+    },
+    { 
+      category: "開発", 
+      items: [
+        { name: "React/Next.js", level: 80 },
+        { name: "TypeScript", level: 75 },
+        { name: "Node.js", level: 65 },
+        { name: "Firebase", level: 70 }
+      ], 
+      color: "#00E676",
+      icon: "💻"
+    },
+    { 
+      category: "データ分析", 
+      items: [
+        { name: "Google Analytics", level: 85 },
+        { name: "A/Bテスト", level: 80 },
+        { name: "SQL", level: 70 },
+        { name: "データビジュアライゼーション", level: 65 }
+      ], 
+      color: "#FF9100",
+      icon: "📊"
+    },
   ]
 
   const timeline = [
@@ -67,7 +107,7 @@ export default function ProfilePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-blue/5">
+    <div className="min-h-screen pop-bg-light">
       {/* ヒーローセクション */}
       <section className="py-20 sm:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +123,7 @@ export default function ProfilePage() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-full h-full bg-gradient-to-r from-accent-blue to-accent-green rounded-full flex items-center justify-center shadow-fun">
+              <div className="w-full h-full pop-icon pop-icon-secondary flex items-center justify-center">
                 <Smile className="w-16 h-16 text-white" />
               </div>
               <motion.div
@@ -97,7 +137,7 @@ export default function ProfilePage() {
 
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                <span className="gradient-text">こんにちは！</span>
+                <span className="pop-text">こんにちは！</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 プロダクトを通じて人の生活をちょっと豊かにするのが好きなPdMです 😊<br />
@@ -134,7 +174,7 @@ export default function ProfilePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">ざっくり自己紹介</h2>
-            <div className="bg-gray-50 rounded-2xl p-8 text-left max-w-3xl mx-auto">
+            <div className="pop-card text-left max-w-3xl mx-auto">
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
                   文系出身でプログラミングは完全に独学からスタート。最初は「Hello World」すら理解できませんでした 😅<br />
@@ -148,7 +188,7 @@ export default function ProfilePage() {
                   最近は「技術×デザイン×ビジネス」の交差点でアウトプットすることに夢中。<br />
                   一つの専門分野を極めるより、複数の分野をつなげて価値を生み出すのが自分らしい働き方だと思ってます ✨
                 </p>
-                <p className="text-accent-blue font-medium">
+                <p className="pop-text font-medium">
                   「この人と一緒に働いたら楽しそう」と思ってもらえるような人でありたいです！
                 </p>
               </div>
@@ -181,9 +221,9 @@ export default function ProfilePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
-                  className="fun-card p-6 text-center hover:scale-105"
+                  className="pop-card text-center"
                 >
-                  <IconComponent className="w-8 h-8 text-accent-blue mx-auto mb-4" />
+                  <IconComponent className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                   <h3 className="text-lg font-bold text-gray-900 mb-3">{hobby.name}</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">{hobby.description}</p>
                 </motion.div>
@@ -215,20 +255,39 @@ export default function ProfilePage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 viewport={{ once: true }}
-                className="bg-gray-50 rounded-2xl p-6"
+                className="pop-card"
               >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className={`w-3 h-3 bg-gradient-to-r ${skill.color} rounded-full`} />
+                <div className="flex items-center space-x-3 mb-6">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg border-2"
+                    style={{ 
+                      backgroundColor: skill.color,
+                      borderColor: skill.color
+                    }}
+                  >
+                    {skill.icon}
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900">{skill.category}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {skill.items.map((item) => (
-                    <span
-                      key={item}
-                      className="px-3 py-1 bg-white text-gray-700 text-sm rounded-lg border border-gray-200"
-                    >
-                      {item}
-                    </span>
+                
+                <div className="space-y-4">
+                  {skill.items.map((item, itemIndex) => (
+                    <div key={item.name} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-gray-800">{item.name}</span>
+                        <span className="text-xs text-gray-600">{item.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <motion.div
+                          className="h-2 rounded-full"
+                          style={{ backgroundColor: skill.color }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${item.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 + itemIndex * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </div>
                   ))}
                 </div>
               </motion.div>
@@ -264,17 +323,17 @@ export default function ProfilePage() {
                 <div className="flex-shrink-0">
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
                     item.highlight 
-                      ? 'bg-gradient-to-r from-accent-blue to-accent-green shadow-fun' 
+                      ? 'pop-icon pop-icon-secondary' 
                       : 'bg-gray-400'
                   }`}>
                     {item.highlight ? <Zap className="w-6 h-6" /> : item.year.slice(-2)}
                   </div>
                 </div>
-                <div className="flex-1 bg-white rounded-xl p-6 shadow-soft">
+                <div className="flex-1 pop-card-neutral">
                   <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-sm font-medium text-accent-blue">{item.year}</span>
+                    <span className="text-sm font-medium text-blue-600">{item.year}</span>
                     {item.highlight && (
-                      <span className="px-2 py-1 bg-accent-blue/10 text-accent-blue text-xs font-medium rounded-full">
+                      <span className="pop-badge-neutral text-xs">
                         現在
                       </span>
                     )}
@@ -305,7 +364,7 @@ export default function ProfilePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Link
                 href="/contact"
-                className="fun-button flex items-center space-x-2 group"
+                className="pop-button flex items-center space-x-2 group"
               >
                 <Mail className="w-5 h-5" />
                 <span>お問い合わせフォーム</span>
@@ -317,7 +376,8 @@ export default function ProfilePage() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
+                  className="pop-button-white group"
+                  style={{ padding: '0.75rem' }}
                 >
                   <Twitter className="w-5 h-5 hover-scale" />
                 </a>
@@ -325,7 +385,8 @@ export default function ProfilePage() {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 border-2 border-gray-600 rounded-full text-gray-800 hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth group"
+                  className="pop-button-white group"
+                  style={{ padding: '0.75rem' }}
                 >
                   <Github className="w-5 h-5 hover-scale" />
                 </a>

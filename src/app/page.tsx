@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles, Rocket, Heart } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-accent-blue/5">
+    <div className="min-h-screen pop-bg-light">
       {/* ヒーローセクション */}
       <section className="relative overflow-hidden py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ export default function Home() {
                   animate={{ rotate: [0, 5, -5, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <div className="w-24 h-24 bg-gradient-to-r from-accent-blue to-accent-green rounded-full flex items-center justify-center shadow-fun">
+                  <div className="pop-icon pop-icon-secondary" style={{ width: '6rem', height: '6rem' }}>
                     <Sparkles className="w-12 h-12 text-white" />
                   </div>
                 </motion.div>
@@ -32,7 +32,7 @@ export default function Home() {
 
               <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 tracking-tight">
                 <span className="block">遊び心と仕組みづくりで</span>
-                <span className="block gradient-text mt-2">サービスを形にする</span>
+                <span className="block pop-text mt-2">サービスを形にする</span>
                 <span className="block text-3xl sm:text-5xl mt-4">PdM</span>
               </h1>
 
@@ -51,7 +51,7 @@ export default function Home() {
             >
               <Link
                 href="/works"
-                className="fun-button flex items-center space-x-2 group"
+                className="pop-button flex items-center space-x-2 group"
               >
                 <span>作品を見る</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 hover-translate" />
@@ -59,7 +59,7 @@ export default function Home() {
 
               <Link
                 href="/profile"
-                className="px-8 py-3 border-2 border-gray-600 rounded-full text-gray-800 font-medium hover:border-accent-blue hover:text-accent-blue hover:bg-accent-blue/5 transition-all-smooth flex items-center space-x-2 group"
+                className="pop-button-white flex items-center space-x-2 group"
               >
                 <Heart className="w-5 h-5 hover-scale" />
                 <span>プロフィール</span>
@@ -90,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* 特徴セクション */}
-      <section className="py-20 bg-white">
+      <section className="py-20 pop-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -136,9 +136,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
-                  className="fun-card p-8 text-center group hover:scale-105"
+                  className="pop-card text-center group"
                 >
-                  <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                  <div className={`pop-icon mx-auto mb-6 ${index === 0 ? 'pop-icon-accent' : index === 1 ? 'pop-icon-secondary' : 'pop-icon-warning'}`}>
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* CTA セクション */}
-      <section className="py-20 bg-gradient-to-r from-accent-blue via-accent-green to-accent-blue">
+      <section className="py-20" style={{ background: 'var(--color-primary)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -168,7 +168,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="cta-white-button inline-flex items-center space-x-2 text-lg group"
+              className="pop-button-white inline-flex items-center space-x-2 text-lg group"
             >
               <span>お話ししましょう</span>
               <ArrowRight className="w-5 h-5 hover-translate" />

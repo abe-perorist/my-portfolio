@@ -22,13 +22,14 @@ const Navigation = () => {
           {/* ロゴ */}
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
-              className="w-8 h-8 bg-gradient-to-r from-accent-blue to-accent-green rounded-lg flex items-center justify-center"
+              className="pop-icon"
+              style={{ width: '2rem', height: '2rem', fontSize: '0.875rem' }}
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="text-white font-bold text-sm">P</span>
             </motion.div>
-            <span className="font-bold text-lg gradient-text">Portfolio</span>
+            <span className="font-bold text-lg pop-text">Portfolio</span>
           </Link>
 
           {/* デスクトップメニュー */}
@@ -39,7 +40,7 @@ const Navigation = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center space-x-2 text-gray-800 hover:text-accent-blue transition-colors group"
+                  className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition-colors group"
                 >
                   <IconComponent className="w-4 h-4 hover-scale" />
                   <span className="font-medium">{item.label}</span>
@@ -52,7 +53,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-lg text-gray-800 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -90,7 +91,7 @@ const Navigation = () => {
               >
                 <Link
                   href={item.href}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-800 hover:text-accent-blue hover:bg-accent-blue/10 transition-colors"
+                  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-800 hover:text-blue-600 hover:bg-blue-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <IconComponent className="w-5 h-5" />
