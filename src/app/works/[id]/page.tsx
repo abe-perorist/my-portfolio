@@ -181,9 +181,10 @@ export default function WorkDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
-                  className="text-center p-6 bg-gray-50 rounded-2xl"
+                  className="text-center p-6 bg-white rounded-2xl shadow-soft border border-gray-100 relative overflow-hidden"
                 >
-                  <div className="text-2xl font-bold text-accent-blue mb-2">{String(value)}</div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-blue to-accent-green"></div>
+                  <div className="text-2xl font-bold text-gray-900 mb-2">{String(value)}</div>
                   <div className="text-sm text-gray-800 capitalize font-medium">{key}</div>
                 </motion.div>
               ))}
