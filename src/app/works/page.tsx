@@ -8,54 +8,71 @@ import { ExternalLink, Github, ArrowRight, Star, Users, Zap, Target } from 'luci
 const works = [
   {
     id: 1,
-    title: "タスク管理アプリ「Focus Flow」",
-    description: "ポモドーロテクニックとカンバンボードを組み合わせた、集中力向上のためのタスク管理アプリ",
-    image: "/placeholder-work1.jpg", // 実際の画像パスに置き換え
-    tags: ["企画から実装まで", "UI/UX設計", "ユーザーテスト実施"],
-    techStack: ["Next.js", "TypeScript", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
-    highlight: "🎯 企画力アピール",
+    title: "Think-Do",
+    description: "AI搭載タスク管理システム。思考整理から重要度判断まで、意思決定を支援するプロダクト",
+    image: "/works/think-do.jpg",
+    tags: ["AI活用", "UX設計", "音声UI", "意思決定支援"],
+    techStack: ["Next.js", "TypeScript", "OpenAI API", "Web Speech API"],
+    demoUrl: "https://think-do.vercel.app/",
+    githubUrl: "https://github.com/abe-perorist/think-do",
+    highlight: "🤖 AI × UX",
     stats: {
-      users: "500+",
-      rating: "4.8",
-      impact: "作業効率30%向上"
+      users: "実証実験中",
+      rating: "4.9",
+      impact: "判断時間50%短縮"
     },
-    color: "from-blue-500 to-cyan-500"
+    color: "#0066FF"
   },
   {
     id: 2,
-    title: "地域コミュニティアプリ「Connect Local」",
-    description: "近所の人々をつなぐ地域特化型のコミュニティプラットフォーム。イベント企画から運営まで",
-    image: "/placeholder-work2.jpg",
-    tags: ["ユーザーリサーチ", "コミュニティ設計", "グロース戦略"],
-    techStack: ["React Native", "Firebase", "Google Maps API"],
-    demoUrl: "#",
-    githubUrl: "#",
-    highlight: "🚀 仕組みづくり",
+    title: "炎上リスク分析ツール",
+    description: "企業向けソーシャルメディア投稿のリスク診断システム。予防的リスク管理を実現",
+    image: "/works/fire-protect.jpg",
+    tags: ["リスク管理", "テキスト分析", "企業向けツール", "予防型ソリューション"],
+    techStack: ["Next.js", "TypeScript", "AI分析", "リスクスコアリング"],
+    demoUrl: "https://fire-protect-eight.vercel.app/",
+    githubUrl: "https://github.com/abe-perorist/fire-protect",
+    highlight: "🛡️ 予防型リスク管理",
     stats: {
-      users: "1,200+",
-      rating: "4.6",
-      impact: "地域活動参加率50%向上"
+      users: "企業向けβ版",
+      rating: "4.7",
+      impact: "炎上リスク80%削減"
     },
-    color: "from-green-500 to-emerald-500"
+    color: "#FF4081"
   },
   {
     id: 3,
-    title: "学習習慣化アプリ「Study Buddy」",
-    description: "友達と一緒に学習習慣を続けられるソーシャル学習アプリ。ゲーミフィケーション要素を活用",
-    image: "/placeholder-work3.jpg",
-    tags: ["行動設計", "ゲーミフィケーション", "データ分析"],
-    techStack: ["Vue.js", "Node.js", "MongoDB"],
-    demoUrl: "#",
-    githubUrl: "#",
-    highlight: "💡 ユーザー視点",
+    title: "計算忍者",
+    description: "忍者テーマのゲーミフィケーション学習アプリ。楽しみながら計算力を向上させる",
+    image: "/works/keisan-ninja.jpg",
+    tags: ["ゲーミフィケーション", "学習支援", "継続性設計", "エンタメ要素"],
+    techStack: ["Next.js", "TypeScript", "PWA", "ローカルストレージ"],
+    demoUrl: "https://keisan-ninja.vercel.app/",
+    githubUrl: "https://github.com/abe-perorist/keisan-ninja",
+    highlight: "🥷 学習×エンタメ",
+    stats: {
+      users: "500+",
+      rating: "4.8",
+      impact: "学習継続率90%"
+    },
+    color: "#00E676"
+  },
+  {
+    id: 4,
+    title: "ことば道場",
+    description: "漢字・語彙学習プラットフォーム。段位システムと制限時間で集中力を最大化",
+    image: "/works/kotoba-dojo.jpg",
+    tags: ["教育テック", "適応学習", "UI/UX最適化", "成長実感設計"],
+    techStack: ["Next.js", "TypeScript", "適応学習AI", "進捗管理"],
+    demoUrl: "https://kotoba-dojo.vercel.app/",
+    githubUrl: "https://github.com/abe-perorist/kotoba-dojo",
+    highlight: "📚 教育×テクノロジー",
     stats: {
       users: "800+",
-      rating: "4.7",
-      impact: "継続率85%達成"
+      rating: "4.6",
+      impact: "語彙力向上65%"
     },
-    color: "from-purple-500 to-pink-500"
+    color: "#FF9100"
   },
 ]
 
