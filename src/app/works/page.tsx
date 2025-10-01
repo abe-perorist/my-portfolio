@@ -184,7 +184,15 @@ export default function WorksPage() {
                           </GlitchText>
                         </h3>
                         <span className="pop-badge text-sm">
-                          {work.highlight}
+                          <GlitchText 
+                            glitchConfig={{ 
+                              intensity: 0.3, 
+                              interval: { min: 3000, max: 7000 },
+                              delay: 4500 + (index * 200)
+                            }}
+                          >
+                            {work.highlight}
+                          </GlitchText>
                         </span>
                       </div>
                       <p className="text-gray-600 leading-relaxed mb-4">
@@ -359,8 +367,21 @@ export default function WorksPage() {
                       rel="noopener noreferrer"
                       className="pop-button-white flex items-center justify-center group"
                       style={{ padding: '0.75rem' }}
+                      title="デモサイト"
                     >
-                      <ExternalLink className="w-4 h-4 hover-scale" />
+                      <motion.div
+                        animate={{
+                          rotate: [0, 5, -5, 0],
+                          scale: [1, 1.1, 1]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: 11000 + (index * 300)
+                        }}
+                      >
+                        <ExternalLink className="w-4 h-4 hover-scale" />
+                      </motion.div>
                     </a>
                     <a
                       href={work.githubUrl}
@@ -368,8 +389,21 @@ export default function WorksPage() {
                       rel="noopener noreferrer"
                       className="pop-button-white flex items-center justify-center group"
                       style={{ padding: '0.75rem' }}
+                      title="GitHub"
                     >
-                      <Github className="w-4 h-4 hover-scale" />
+                      <motion.div
+                        animate={{
+                          rotate: [0, -3, 3, 0],
+                          scale: [1, 1.05, 1]
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          delay: 11200 + (index * 300)
+                        }}
+                      >
+                        <Github className="w-4 h-4 hover-scale" />
+                      </motion.div>
                     </a>
                   </div>
                 </DegradationCard>
