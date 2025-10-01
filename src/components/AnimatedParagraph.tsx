@@ -40,7 +40,7 @@ export function AnimatedParagraph({
 
   // Intersection Observerで読み終わりを検出
   useEffect(() => {
-    if (!paragraphRef.current || hasBeenRead) return
+    if (!paragraphRef.current || hasBeenRead || words.length === 0) return
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,17 +48,21 @@ export function AnimatedParagraph({
           if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
             setHasBeenRead(true)
             
-            // 親コンポーネントに通知
+            // 親コンポーネントに通知（少し遅延させてrefが確実に設定されるようにする）
             if (onRead) {
-              const wordElements = words
-                .map(word => ({
-                  id: word.id,
-                  text: word.text,
-                  element: word.ref.current,
-                }))
-                .filter((w): w is { id: string; text: string; element: HTMLElement } => w.element !== null)
-              
-              onRead(wordElements)
+              setTimeout(() => {
+                const wordElements = words
+                  .map(word => ({
+                    id: word.id,
+                    text: word.text,
+                    element: word.ref.current,
+                  }))
+                  .filter((w): w is { id: string; text: string; element: HTMLElement } => w.element !== null)
+                
+                if (wordElements.length > 0) {
+                  onRead(wordElements)
+                }
+              }, 100)
             }
           }
         })
