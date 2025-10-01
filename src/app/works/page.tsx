@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github, ArrowRight, Star, Users, Zap, Target } from 'lucide-react'
 import { DegradationCard } from '@/components/DegradationCard'
 import { GlitchText } from '@/components/GlitchText'
+import { GlitchWarning } from '@/components/GlitchWarning'
 
 // サンプル作品データ（実際のプロジェクトでは外部ファイルやAPIから取得）
 const works = [
@@ -81,6 +82,14 @@ const works = [
 export default function WorksPage() {
   return (
     <>
+      {/* ビリビリ警告エフェクト */}
+      <GlitchWarning 
+        delay={3000}
+        onComplete={() => {
+          console.log('劣化アニメーション開始！')
+        }}
+      />
+      
       {/* パフォーマンス最適化用のCSS */}
       <style jsx global>{`
         .degradation-card {
