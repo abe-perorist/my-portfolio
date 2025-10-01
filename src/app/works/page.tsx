@@ -132,15 +132,15 @@ export default function WorksPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              <GlitchText className="pop-text">
+              <GlitchText glitchConfig={{ delay: 3000 }}>
                 作品一覧
               </GlitchText>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              <GlitchText glitchConfig={{ intensity: 0.2, interval: { min: 4000, max: 8000 } }}>
+              <GlitchText glitchConfig={{ intensity: 0.2, interval: { min: 4000, max: 8000 }, delay: 3200 }}>
                 企画から実装まで一貫して携わったプロダクトたちです。
               </GlitchText><br />
-              <GlitchText glitchConfig={{ intensity: 0.15, interval: { min: 5000, max: 9000 } }}>
+              <GlitchText glitchConfig={{ intensity: 0.15, interval: { min: 5000, max: 9000 }, delay: 3400 }}>
                 それぞれの工夫ポイントや学びも一緒にご紹介します 📝
               </GlitchText>
             </p>
@@ -177,7 +177,7 @@ export default function WorksPage() {
                             glitchConfig={{ 
                               intensity: 0.25, 
                               interval: { min: 3000, max: 7000 },
-                              delay: 4000 + (index * 500)
+                              delay: 3500 + (index * 300)
                             }}
                           >
                             {work.title}
@@ -188,7 +188,7 @@ export default function WorksPage() {
                             glitchConfig={{ 
                               intensity: 0.3, 
                               interval: { min: 3000, max: 7000 },
-                              delay: 4500 + (index * 200)
+                              delay: 3800 + (index * 150)
                             }}
                           >
                             {work.highlight}
@@ -200,7 +200,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.15, 
                             interval: { min: 4000, max: 8000 },
-                            delay: 5000 + (index * 300)
+                            delay: 4000 + (index * 200)
                           }}
                         >
                           {work.description}
@@ -218,7 +218,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.2, 
                             interval: { min: 4000, max: 8000 },
-                            delay: 5500 + (index * 100)
+                            delay: 4200 + (index * 80)
                           }}
                         >
                           {work.stats.users}
@@ -229,7 +229,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.15, 
                             interval: { min: 5000, max: 9000 },
-                            delay: 5600 + (index * 100)
+                            delay: 4300 + (index * 80)
                           }}
                         >
                           ユーザー
@@ -243,7 +243,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.2, 
                             interval: { min: 4000, max: 8000 },
-                            delay: 5700 + (index * 100)
+                            delay: 4400 + (index * 80)
                           }}
                         >
                           {work.stats.rating}
@@ -254,7 +254,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.15, 
                             interval: { min: 5000, max: 9000 },
-                            delay: 5800 + (index * 100)
+                            delay: 4500 + (index * 80)
                           }}
                         >
                           評価
@@ -268,7 +268,7 @@ export default function WorksPage() {
                           glitchConfig={{ 
                             intensity: 0.2, 
                             interval: { min: 4000, max: 8000 },
-                            delay: 5900 + (index * 100)
+                            delay: 4600 + (index * 80)
                           }}
                         >
                           {work.stats.impact}
@@ -285,7 +285,7 @@ export default function WorksPage() {
                         glitchConfig={{ 
                           intensity: 0.2, 
                           interval: { min: 5000, max: 10000 },
-                          delay: 6000 + (index * 400)
+                          delay: 4800 + (index * 300)
                         }}
                       >
                         PdMとしての工夫ポイント
@@ -301,7 +301,7 @@ export default function WorksPage() {
                             glitchConfig={{ 
                               intensity: 0.3, 
                               interval: { min: 4000, max: 9000 },
-                              delay: 7000 + (index * 200) + (tagIndex * 100)
+                              delay: 5000 + (index * 150) + (tagIndex * 80)
                             }}
                           >
                             {tag}
@@ -318,7 +318,7 @@ export default function WorksPage() {
                         glitchConfig={{ 
                           intensity: 0.2, 
                           interval: { min: 6000, max: 12000 },
-                          delay: 8000 + (index * 300)
+                          delay: 6000 + (index * 200)
                         }}
                       >
                         技術スタック
@@ -334,7 +334,7 @@ export default function WorksPage() {
                             glitchConfig={{ 
                               intensity: 0.25, 
                               interval: { min: 5000, max: 11000 },
-                              delay: 9000 + (index * 150) + (techIndex * 80)
+                              delay: 6500 + (index * 100) + (techIndex * 60)
                             }}
                           >
                             {tech}
@@ -354,7 +354,7 @@ export default function WorksPage() {
                         glitchConfig={{ 
                           intensity: 0.3, 
                           interval: { min: 3000, max: 8000 },
-                          delay: 10000 + (index * 200)
+                          delay: 7000 + (index * 150)
                         }}
                       >
                         詳細を見る
@@ -377,7 +377,7 @@ export default function WorksPage() {
                         transition={{
                           duration: 2,
                           repeat: Infinity,
-                          delay: 11000 + (index * 300)
+                          delay: 7500 + (index * 200)
                         }}
                       >
                         <ExternalLink className="w-4 h-4 hover-scale" />
@@ -399,7 +399,7 @@ export default function WorksPage() {
                         transition={{
                           duration: 2.5,
                           repeat: Infinity,
-                          delay: 11200 + (index * 300)
+                          delay: 7700 + (index * 200)
                         }}
                       >
                         <Github className="w-4 h-4 hover-scale" />
@@ -427,7 +427,7 @@ export default function WorksPage() {
                 glitchConfig={{ 
                   intensity: 0.2, 
                   interval: { min: 6000, max: 12000 },
-                  delay: 12000
+                  delay: 8000
                 }}
               >
                 他にもお見せできる作品があります
@@ -438,7 +438,7 @@ export default function WorksPage() {
                 glitchConfig={{ 
                   intensity: 0.15, 
                   interval: { min: 7000, max: 13000 },
-                  delay: 13000
+                  delay: 8500
                 }}
               >
                 NDAの関係で公開できない企業案件などもあります。
@@ -447,7 +447,7 @@ export default function WorksPage() {
                 glitchConfig={{ 
                   intensity: 0.15, 
                   interval: { min: 8000, max: 14000 },
-                  delay: 14000
+                  delay: 9000
                 }}
               >
                 詳しくはお話しする機会があればお聞かせします！
@@ -461,7 +461,7 @@ export default function WorksPage() {
                 glitchConfig={{ 
                   intensity: 0.25, 
                   interval: { min: 5000, max: 10000 },
-                  delay: 15000
+                  delay: 9500
                 }}
               >
                 お問い合わせ
