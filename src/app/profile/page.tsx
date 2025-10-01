@@ -25,7 +25,7 @@ import { ReconstructionArea } from '@/components/ReconstructionArea'
 import { useAntAnimation } from '@/hooks/useAntAnimation'
 
 export default function ProfilePage() {
-  const { animatingWords, reconstructedText, startAnimation } = useAntAnimation()
+  const { animatingWords, reconstructedText, startAnimation, isAnimating } = useAntAnimation()
 
   const hobbies = [
     { icon: Coffee, name: "コーヒー", description: "サードウェーブコーヒーを巡るのが趣味。最近はエアロプレスにハマってます ☕" },
@@ -145,12 +145,9 @@ export default function ProfilePage() {
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
                 <span className="pop-text">こんにちは！</span>
               </h1>
-              <AnimatedParagraph 
-                className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
-                onRead={startAnimation}
-              >
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 プロダクトを通じて人の生活をちょっと豊かにするのが好きなPdMです 😊 技術も、デザインも、ビジネスも全部ちょっとずつかじってます
-              </AnimatedParagraph>
+              </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -414,7 +411,7 @@ export default function ProfilePage() {
       ))}
 
       {/* 再構築エリア */}
-      <ReconstructionArea text={reconstructedText} />
+      <ReconstructionArea text={reconstructedText} isAnimating={isAnimating} />
     </div>
   )
 }

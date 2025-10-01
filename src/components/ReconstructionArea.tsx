@@ -6,12 +6,13 @@ import { useMemo } from 'react'
 
 interface ReconstructionAreaProps {
   text: string
+  isAnimating?: boolean
 }
 
 /**
  * 単語が集まって新しい文章を再構築するエリア
  */
-export function ReconstructionArea({ text }: ReconstructionAreaProps) {
+export function ReconstructionArea({ text, isAnimating = false }: ReconstructionAreaProps) {
   // 絵文字を含むテキストを正しく分割
   const splitText = useMemo(() => {
     if (!text) return []
@@ -32,7 +33,26 @@ export function ReconstructionArea({ text }: ReconstructionAreaProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <AnimatePresence mode="wait">
-          {text ? (
+          {isAnimating ? (
+            <motion.div
+              key="animating"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center text-accent-blue"
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="w-8 h-8 mx-auto mb-2"
+              >
+                <Sparkles className="w-8 h-8" />
+              </motion.div>
+              <p className="text-sm font-medium">
+                アリが文字を運んでいます...
+              </p>
+            </motion.div>
+          ) : text ? (
             <motion.div
               key={text}
               initial={{ opacity: 0, y: 20 }}
