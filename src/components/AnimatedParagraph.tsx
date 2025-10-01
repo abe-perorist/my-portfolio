@@ -78,7 +78,7 @@ export function AnimatedParagraph({
 
   return (
     <p ref={paragraphRef} className={className}>
-      {words.map((word) => (
+      {words.map((word, index) => (
         <motion.span
           key={word.id}
           ref={word.ref}
@@ -87,6 +87,17 @@ export function AnimatedParagraph({
           style={{
             display: 'inline-block',
           }}
+          animate={
+            hasBeenRead
+              ? {
+                  opacity: 0,
+                  transition: {
+                    delay: index * 0.05,
+                    duration: 0.3,
+                  },
+                }
+              : {}
+          }
         >
           {word.text}
         </motion.span>
