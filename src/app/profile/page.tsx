@@ -19,8 +19,14 @@ import {
   Smile,
   Zap
 } from 'lucide-react'
+import { AnimatedParagraph } from '@/components/AnimatedParagraph'
+import { AntWord } from '@/components/AntWord'
+import { ReconstructionArea } from '@/components/ReconstructionArea'
+import { useAntAnimation } from '@/hooks/useAntAnimation'
 
 export default function ProfilePage() {
+  const { animatingWords, reconstructedText, startAnimation } = useAntAnimation()
+
   const hobbies = [
     { icon: Coffee, name: "コーヒー", description: "サードウェーブコーヒーを巡るのが趣味。最近はエアロプレスにハマってます ☕" },
     { icon: Gamepad2, name: "ゲーム", description: "インディーゲームが大好き。特にナラティブ系とパズルゲームを好みます 🎮" },
@@ -139,10 +145,12 @@ export default function ProfilePage() {
               <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
                 <span className="pop-text">こんにちは！</span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                プロダクトを通じて人の生活をちょっと豊かにするのが好きなPdMです 😊<br />
-                技術も、デザインも、ビジネスも全部ちょっとずつかじってます
-              </p>
+              <AnimatedParagraph 
+                className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                onRead={startAnimation}
+              >
+                プロダクトを通じて人の生活をちょっと豊かにするのが好きなPdMです 😊 技術も、デザインも、ビジネスも全部ちょっとずつかじってます
+              </AnimatedParagraph>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -176,21 +184,21 @@ export default function ProfilePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">ざっくり自己紹介</h2>
             <div className="pop-card text-left max-w-3xl mx-auto">
               <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p>
-                  文系出身でプログラミングは完全に独学からスタート。最初は「Hello World」すら理解できませんでした 😅<br />
-                  でも作ったものが動く瞬間の感動が忘れられず、気づいたらエンジニアになっていました。
-                </p>
-                <p>
-                  開発経験を積む中で「技術って手段だよね」と気づき、ユーザーが本当に欲しいものを作りたくてPdMに転向。<br />
-                  心理学専攻だった背景もあって、ユーザー心理を考えるのがめちゃくちゃ楽しいです。
-                </p>
-                <p>
-                  最近は「技術×デザイン×ビジネス」の交差点でアウトプットすることに夢中。<br />
-                  一つの専門分野を極めるより、複数の分野をつなげて価値を生み出すのが自分らしい働き方だと思ってます ✨
-                </p>
-                <p className="pop-text font-medium">
+                <AnimatedParagraph onRead={startAnimation}>
+                  文系出身でプログラミングは完全に独学からスタート。最初は「Hello World」すら理解できませんでした 😅 でも作ったものが動く瞬間の感動が忘れられず、気づいたらエンジニアになっていました。
+                </AnimatedParagraph>
+                <AnimatedParagraph onRead={startAnimation}>
+                  開発経験を積む中で「技術って手段だよね」と気づき、ユーザーが本当に欲しいものを作りたくてPdMに転向。心理学専攻だった背景もあって、ユーザー心理を考えるのがめちゃくちゃ楽しいです。
+                </AnimatedParagraph>
+                <AnimatedParagraph onRead={startAnimation}>
+                  最近は「技術×デザイン×ビジネス」の交差点でアウトプットすることに夢中。一つの専門分野を極めるより、複数の分野をつなげて価値を生み出すのが自分らしい働き方だと思ってます ✨
+                </AnimatedParagraph>
+                <AnimatedParagraph 
+                  className="pop-text font-medium"
+                  onRead={startAnimation}
+                >
                   「この人と一緒に働いたら楽しそう」と思ってもらえるような人でありたいです！
-                </p>
+                </AnimatedParagraph>
               </div>
             </div>
           </motion.div>
@@ -399,6 +407,14 @@ export default function ProfilePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* アニメーション中の単語 */}
+      {animatingWords.map((word, index) => (
+        <AntWord key={word.id} word={word} delay={index * 0.05} />
+      ))}
+
+      {/* 再構築エリア */}
+      <ReconstructionArea text={reconstructedText} />
     </div>
   )
 }
