@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
+import { useMemo } from 'react'
 
 interface ReconstructionAreaProps {
   text: string
@@ -11,6 +12,18 @@ interface ReconstructionAreaProps {
  * 単語が集まって新しい文章を再構築するエリア
  */
 export function ReconstructionArea({ text }: ReconstructionAreaProps) {
+  // 絵文字を含むテキストを正しく分割
+  const splitText = useMemo(() => {
+    if (!text) return []
+    
+    if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+      const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' })
+      return Array.from(segmenter.segment(text), s => s.segment)
+    } else {
+      // フォールバック: 絵文字などを考慮した正規表現
+      return text.match(/[\s\S]/gu) || []
+    }
+  }, [text])
   return (
     <div
       id="reconstruction-area"
@@ -41,7 +54,7 @@ export function ReconstructionArea({ text }: ReconstructionAreaProps) {
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
               >
-                {text.split('').map((char, index) => (
+                {splitText.map((char, index) => (
                   <motion.span
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
