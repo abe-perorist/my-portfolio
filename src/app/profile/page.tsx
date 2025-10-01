@@ -9,14 +9,12 @@ import {
   Music, 
   BookOpen, 
   Code, 
-  MapPin,
-  Calendar,
   Mail,
   Github,
   Twitter,
   ArrowRight,
   Heart,
-  Smile,
+  Sparkles,
   Zap
 } from 'lucide-react'
 import { AnimatedParagraph } from '@/components/AnimatedParagraph'
@@ -25,7 +23,7 @@ import { ReconstructionArea } from '@/components/ReconstructionArea'
 import { useAntAnimation } from '@/hooks/useAntAnimation'
 
 export default function ProfilePage() {
-  const { animatingWords, reconstructedText, startAnimation } = useAntAnimation()
+  const { animatingWords, reconstructedText, startAnimation, isAnimating } = useAntAnimation()
 
   const hobbies = [
     { icon: Coffee, name: "コーヒー", description: "サードウェーブコーヒーを巡るのが趣味。最近はエアロプレスにハマってます ☕" },
@@ -123,50 +121,42 @@ export default function ProfilePage() {
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-center space-y-8"
           >
-            {/* プロフィール画像 */}
+            {/* プロフィールアイコン */}
             <motion.div
-              className="relative w-32 h-32 mx-auto"
+              className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-full h-full pop-icon pop-icon-secondary flex items-center justify-center">
-                <Smile className="w-16 h-16 text-white" />
+              <div className="w-full h-full pop-icon pop-icon-accent flex items-center justify-center">
+                <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
               </div>
               <motion.div
-                className="absolute -bottom-2 -right-2 w-8 h-8 bg-accent-orange rounded-full flex items-center justify-center"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent-green rounded-full flex items-center justify-center"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                <Heart className="w-4 h-4 text-white" />
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               </motion.div>
             </motion.div>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                <span className="pop-text">こんにちは！</span>
-              </h1>
-              <AnimatedParagraph 
-                className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
-                onRead={startAnimation}
-              >
-                プロダクトを通じて人の生活をちょっと豊かにするのが好きなPdMです 😊 技術も、デザインも、ビジネスも全部ちょっとずつかじってます
-              </AnimatedParagraph>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
-                <span>東京都</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Calendar className="w-4 h-4" />
-                <span>フリーランス PdM</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Coffee className="w-4 h-4" />
-                <span>コーヒー好き</span>
-              </div>
-            </div>
+            {/* アピール文 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                役に立たないことが好き
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                でも、その「役に立たない」が実は一番役に立つ瞬間があるんです ✨<br />
+                遊び心と仕組みづくりで、ちょっとした驚きをプロダクトに込めています
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -414,7 +404,7 @@ export default function ProfilePage() {
       ))}
 
       {/* 再構築エリア */}
-      <ReconstructionArea text={reconstructedText} />
+      <ReconstructionArea text={reconstructedText} isAnimating={isAnimating} />
     </div>
   )
 }

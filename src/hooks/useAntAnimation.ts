@@ -18,13 +18,19 @@ export interface WordData {
 export function useAntAnimation() {
   const [animatingWords, setAnimatingWords] = useState<WordData[]>([])
   const [reconstructedText, setReconstructedText] = useState<string>('')
+  const [isAnimating, setIsAnimating] = useState(false)
 
   /**
    * 単語のアニメーションを開始
    */
   const startAnimation = useCallback((words: { id: string; text: string; element: HTMLElement }[]) => {
+    // 既にアニメーション中の場合、新しいアニメーションを開始しない
+    if (isAnimating) return
+    
     const targetElement = document.getElementById('reconstruction-area')
     if (!targetElement) return
+
+    setIsAnimating(true)
 
     const targetRect = targetElement.getBoundingClientRect()
     const targetCenterX = targetRect.left + targetRect.width / 2
@@ -59,8 +65,9 @@ export function useAntAnimation() {
       
       // アニメーション状態をクリア
       setAnimatingWords([])
+      setIsAnimating(false)
     }, 3000) // アニメーション時間
-  }, [])
+  }, [isAnimating])
 
   /**
    * リセット
@@ -68,6 +75,7 @@ export function useAntAnimation() {
   const reset = useCallback(() => {
     setAnimatingWords([])
     setReconstructedText('')
+    setIsAnimating(false)
   }, [])
 
   return {
@@ -75,6 +83,7 @@ export function useAntAnimation() {
     reconstructedText,
     startAnimation,
     reset,
+    isAnimating,
   }
 }
 
