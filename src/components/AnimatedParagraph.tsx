@@ -27,8 +27,18 @@ export function AnimatedParagraph({
   useEffect(() => {
     if (!children) return
 
-    // 日本語テキストを文字ごとに分割（英語の場合はスペースで分割）
-    const splitText = children.split('')
+    // 絵文字を含むテキストを正しく分割するために、Intl.Segmenterを使用
+    // フォールバック: Segmenterが使えない場合は、簡易的な正規表現を使用
+    let splitText: string[]
+    
+    if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+      const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' })
+      splitText = Array.from(segmenter.segment(children), s => s.segment)
+    } else {
+      // フォールバック: 絵文字などを考慮した正規表現
+      splitText = children.match(/[\s\S]/gu) || []
+    }
+    
     const wordList = splitText.map((char, index) => ({
       id: `word-${Math.random().toString(36).substr(2, 9)}-${index}`,
       text: char,
