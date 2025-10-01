@@ -205,17 +205,67 @@ export default function WorksPage() {
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center p-3 pop-card-neutral">
                       <Users className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-                      <div className="text-sm font-medium text-gray-900">{work.stats.users}</div>
-                      <div className="text-xs text-gray-500">ユーザー</div>
+                      <div className="text-sm font-medium text-gray-900">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.2, 
+                            interval: { min: 4000, max: 8000 },
+                            delay: 5500 + (index * 100)
+                          }}
+                        >
+                          {work.stats.users}
+                        </GlitchText>
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.15, 
+                            interval: { min: 5000, max: 9000 },
+                            delay: 5600 + (index * 100)
+                          }}
+                        >
+                          ユーザー
+                        </GlitchText>
+                      </div>
                     </div>
                     <div className="text-center p-3 pop-card-neutral">
                       <Star className="w-5 h-5 text-green-600 mx-auto mb-1" />
-                      <div className="text-sm font-medium text-gray-900">{work.stats.rating}</div>
-                      <div className="text-xs text-gray-500">評価</div>
+                      <div className="text-sm font-medium text-gray-900">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.2, 
+                            interval: { min: 4000, max: 8000 },
+                            delay: 5700 + (index * 100)
+                          }}
+                        >
+                          {work.stats.rating}
+                        </GlitchText>
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.15, 
+                            interval: { min: 5000, max: 9000 },
+                            delay: 5800 + (index * 100)
+                          }}
+                        >
+                          評価
+                        </GlitchText>
+                      </div>
                     </div>
                     <div className="text-center p-3 pop-card-neutral">
                       <Zap className="w-5 h-5 text-orange-600 mx-auto mb-1" />
-                      <div className="text-sm font-medium text-gray-900 text-xs">{work.stats.impact}</div>
+                      <div className="text-sm font-medium text-gray-900 text-xs">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.2, 
+                            interval: { min: 4000, max: 8000 },
+                            delay: 5900 + (index * 100)
+                          }}
+                        >
+                          {work.stats.impact}
+                        </GlitchText>
+                      </div>
                     </div>
                   </div>
 
@@ -223,15 +273,31 @@ export default function WorksPage() {
                   <div className="mb-6">
                     <h4 className="text-sm font-medium text-gray-800 mb-3 flex items-center">
                       <Target className="w-4 h-4 mr-2" />
-                      PdMとしての工夫ポイント
+                      <GlitchText 
+                        glitchConfig={{ 
+                          intensity: 0.2, 
+                          interval: { min: 5000, max: 10000 },
+                          delay: 6000 + (index * 400)
+                        }}
+                      >
+                        PdMとしての工夫ポイント
+                      </GlitchText>
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {work.tags.map((tag) => (
+                      {work.tags.map((tag, tagIndex) => (
                         <span
                           key={tag}
                           className="pop-badge-neutral text-sm"
                         >
-                          {tag}
+                          <GlitchText 
+                            glitchConfig={{ 
+                              intensity: 0.3, 
+                              interval: { min: 4000, max: 9000 },
+                              delay: 7000 + (index * 200) + (tagIndex * 100)
+                            }}
+                          >
+                            {tag}
+                          </GlitchText>
                         </span>
                       ))}
                     </div>
@@ -239,14 +305,32 @@ export default function WorksPage() {
 
                   {/* 技術スタック */}
                   <div className="mb-8">
-                    <h4 className="text-sm font-medium text-gray-800 mb-3">技術スタック</h4>
+                    <h4 className="text-sm font-medium text-gray-800 mb-3">
+                      <GlitchText 
+                        glitchConfig={{ 
+                          intensity: 0.2, 
+                          interval: { min: 6000, max: 12000 },
+                          delay: 8000 + (index * 300)
+                        }}
+                      >
+                        技術スタック
+                      </GlitchText>
+                    </h4>
                     <div className="flex flex-wrap gap-2">
-                      {work.techStack.map((tech) => (
+                      {work.techStack.map((tech, techIndex) => (
                         <span
                           key={tech}
                           className="pop-badge-neutral text-sm"
                         >
-                          {tech}
+                          <GlitchText 
+                            glitchConfig={{ 
+                              intensity: 0.25, 
+                              interval: { min: 5000, max: 11000 },
+                              delay: 9000 + (index * 150) + (techIndex * 80)
+                            }}
+                          >
+                            {tech}
+                          </GlitchText>
                         </span>
                       ))}
                     </div>
@@ -258,7 +342,15 @@ export default function WorksPage() {
                       href={`/works/${work.id}`}
                       className="flex-1 pop-button text-center flex items-center justify-center space-x-2 group"
                     >
-                      <span>詳細を見る</span>
+                      <GlitchText 
+                        glitchConfig={{ 
+                          intensity: 0.3, 
+                          interval: { min: 3000, max: 8000 },
+                          delay: 10000 + (index * 200)
+                        }}
+                      >
+                        詳細を見る
+                      </GlitchText>
                       <ArrowRight className="w-4 h-4 hover-translate" />
                     </Link>
                     <a
@@ -297,17 +389,49 @@ export default function WorksPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              他にもお見せできる作品があります
+              <GlitchText 
+                glitchConfig={{ 
+                  intensity: 0.2, 
+                  interval: { min: 6000, max: 12000 },
+                  delay: 12000
+                }}
+              >
+                他にもお見せできる作品があります
+              </GlitchText>
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              NDAの関係で公開できない企業案件などもあります。<br />
-              詳しくはお話しする機会があればお聞かせします！
+              <GlitchText 
+                glitchConfig={{ 
+                  intensity: 0.15, 
+                  interval: { min: 7000, max: 13000 },
+                  delay: 13000
+                }}
+              >
+                NDAの関係で公開できない企業案件などもあります。
+              </GlitchText><br />
+              <GlitchText 
+                glitchConfig={{ 
+                  intensity: 0.15, 
+                  interval: { min: 8000, max: 14000 },
+                  delay: 14000
+                }}
+              >
+                詳しくはお話しする機会があればお聞かせします！
+              </GlitchText>
             </p>
             <Link
               href="/contact"
               className="pop-button inline-flex items-center space-x-2 group"
             >
-              <span>お問い合わせ</span>
+              <GlitchText 
+                glitchConfig={{ 
+                  intensity: 0.25, 
+                  interval: { min: 5000, max: 10000 },
+                  delay: 15000
+                }}
+              >
+                お問い合わせ
+              </GlitchText>
               <ArrowRight className="w-5 h-5 hover-translate" />
             </Link>
           </motion.div>
