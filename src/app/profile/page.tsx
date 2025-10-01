@@ -14,7 +14,7 @@ import {
   Twitter,
   ArrowRight,
   Heart,
-  User,
+  Sparkles,
   Zap
 } from 'lucide-react'
 import { AnimatedParagraph } from '@/components/AnimatedParagraph'
@@ -127,16 +127,35 @@ export default function ProfilePage() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-full h-full pop-icon pop-icon-secondary flex items-center justify-center">
-                <User className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
+              <div className="w-full h-full pop-icon pop-icon-accent flex items-center justify-center">
+                <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
               </div>
               <motion.div
-                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent-orange rounded-full flex items-center justify-center"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent-green rounded-full flex items-center justify-center"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 180, 360]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               </motion.div>
+            </motion.div>
+
+            {/* アピール文 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                役に立たないことが好き
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                でも、その「役に立たない」が実は一番役に立つ瞬間があるんです ✨<br />
+                遊び心と仕組みづくりで、ちょっとした驚きをプロダクトに込めています
+              </p>
             </motion.div>
           </motion.div>
         </div>
