@@ -21,7 +21,7 @@ export function AnimatedParagraph({
 }: AnimatedParagraphProps) {
   const paragraphRef = useRef<HTMLParagraphElement>(null)
   const [hasBeenRead, setHasBeenRead] = useState(false)
-  const [words, setWords] = useState<{ id: string; text: string; ref: React.RefObject<HTMLSpanElement> }[]>([])
+  const [words, setWords] = useState<{ id: string; text: string; ref: React.RefObject<HTMLSpanElement | null> }[]>([])
 
   // テキストを単語に分割
   useEffect(() => {
