@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, ArrowRight, Star, Users, Zap, Target } from 'lucide-react'
+import { DegradationCard } from '@/components/DegradationCard'
+import { GlitchText } from '@/components/GlitchText'
 
 // サンプル作品データ（実際のプロジェクトでは外部ファイルやAPIから取得）
 const works = [
@@ -78,7 +80,48 @@ const works = [
 
 export default function WorksPage() {
   return (
-    <div className="min-h-screen pop-bg-light">
+    <>
+      {/* パフォーマンス最適化用のCSS */}
+      <style jsx global>{`
+        .degradation-card {
+          transform-style: preserve-3d;
+          will-change: transform;
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+        
+        .degradation-card * {
+          transform-style: preserve-3d;
+        }
+        
+        /* スマホでのパフォーマンス最適化 */
+        @media (max-width: 768px) {
+          .degradation-card {
+            transform-style: flat;
+            will-change: auto;
+          }
+        }
+        
+        /* 低電力モードでの最適化 */
+        @media (prefers-reduced-motion: reduce) {
+          .degradation-card {
+            animation: none !important;
+            transform: none !important;
+          }
+        }
+        
+        /* グリッチテキストの最適化 */
+        .glitch-text {
+          will-change: contents;
+        }
+        
+        @media (max-width: 768px) {
+          .glitch-text {
+            will-change: auto;
+          }
+        }
+      `}</style>
+      <div className="min-h-screen pop-bg-light">
       {/* ヒーローセクション */}
       <section className="py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,11 +132,17 @@ export default function WorksPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              <span className="pop-text">作品一覧</span>
+              <GlitchText className="pop-text">
+                作品一覧
+              </GlitchText>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              企画から実装まで一貫して携わったプロダクトたちです。<br />
-              それぞれの工夫ポイントや学びも一緒にご紹介します 📝
+              <GlitchText glitchConfig={{ intensity: 0.2, interval: { min: 4000, max: 8000 } }}>
+                企画から実装まで一貫して携わったプロダクトたちです。
+              </GlitchText><br />
+              <GlitchText glitchConfig={{ intensity: 0.15, interval: { min: 5000, max: 9000 } }}>
+                それぞれの工夫ポイントや学びも一緒にご紹介します 📝
+              </GlitchText>
             </p>
           </motion.div>
         </div>
@@ -111,17 +160,44 @@ export default function WorksPage() {
                 transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="group"
               >
-                <div className="pop-card h-full">
+                <DegradationCard
+                  className="pop-card h-full"
+                  degradationConfig={{
+                    delay: 3000 + (index * 1000), // 作品ごとに遅延をずらす
+                    intensity: 0.6 + (index * 0.1), // 作品ごとに強度を変える
+                    duration: 3 + (index * 0.5) // 作品ごとに周期を変える
+                  }}
+                >
                   {/* ワークのヘッダー */}
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-3">
-                        <h3 className="text-2xl font-bold text-gray-900">{work.title}</h3>
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          <GlitchText 
+                            glitchConfig={{ 
+                              intensity: 0.25, 
+                              interval: { min: 3000, max: 7000 },
+                              delay: 4000 + (index * 500)
+                            }}
+                          >
+                            {work.title}
+                          </GlitchText>
+                        </h3>
                         <span className="pop-badge text-sm">
                           {work.highlight}
                         </span>
                       </div>
-                      <p className="text-gray-600 leading-relaxed mb-4">{work.description}</p>
+                      <p className="text-gray-600 leading-relaxed mb-4">
+                        <GlitchText 
+                          glitchConfig={{ 
+                            intensity: 0.15, 
+                            interval: { min: 4000, max: 8000 },
+                            delay: 5000 + (index * 300)
+                          }}
+                        >
+                          {work.description}
+                        </GlitchText>
+                      </p>
                     </div>
                   </div>
 
@@ -204,7 +280,7 @@ export default function WorksPage() {
                       <Github className="w-4 h-4 hover-scale" />
                     </a>
                   </div>
-                </div>
+                </DegradationCard>
               </motion.div>
             ))}
           </div>
@@ -237,6 +313,7 @@ export default function WorksPage() {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
