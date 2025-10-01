@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { Zap } from 'lucide-react'
 
 interface GlitchWarningProps {
   onComplete?: () => void
@@ -115,15 +116,15 @@ export function GlitchWarning({ onComplete, delay = 3000 }: GlitchWarningProps) 
                     exit={{ opacity: 0, y: -20 }}
                     className="space-y-4"
                   >
-                    <motion.h1
-                      className="text-6xl sm:text-8xl font-bold text-red-500"
+                    <motion.div
+                      className="flex items-center justify-center space-x-4"
                       animate={{
-                        textShadow: [
-                          '0 0 10px #ff0000',
-                          '0 0 20px #ff0000, 0 0 30px #ff0000',
-                          '0 0 10px #ff0000',
-                          '0 0 20px #ff0000, 0 0 30px #ff0000',
-                          '0 0 10px #ff0000'
+                        filter: [
+                          'drop-shadow(0 0 10px #ff0000)',
+                          'drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 30px #ff0000)',
+                          'drop-shadow(0 0 10px #ff0000)',
+                          'drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 30px #ff0000)',
+                          'drop-shadow(0 0 10px #ff0000)'
                         ]
                       }}
                       transition={{
@@ -132,17 +133,57 @@ export function GlitchWarning({ onComplete, delay = 3000 }: GlitchWarningProps) 
                         ease: "easeInOut"
                       }}
                     >
-                      ビリビリ！
-                    </motion.h1>
-                    
-                    <motion.p
-                      className="text-xl sm:text-2xl text-white font-medium"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.8 }}
-                    >
-                      何かが起きています...
-                    </motion.p>
+                      {/* 左側の雷アイコン */}
+                      <motion.div
+                        animate={{
+                          rotate: [0, -10, 10, -5, 0],
+                          scale: [1, 1.2, 0.8, 1.1, 1]
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          repeat: 6,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <Zap className="w-16 h-16 sm:w-20 sm:h-20 text-yellow-400" />
+                      </motion.div>
+                      
+                      {/* 中央のテキスト */}
+                      <motion.h1
+                        className="text-6xl sm:text-8xl font-bold text-red-500"
+                        animate={{
+                          textShadow: [
+                            '0 0 10px #ff0000',
+                            '0 0 20px #ff0000, 0 0 30px #ff0000',
+                            '0 0 10px #ff0000',
+                            '0 0 20px #ff0000, 0 0 30px #ff0000',
+                            '0 0 10px #ff0000'
+                          ]
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          repeat: 6,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        ビリビリ
+                      </motion.h1>
+                      
+                      {/* 右側の雷アイコン */}
+                      <motion.div
+                        animate={{
+                          rotate: [0, 10, -10, 5, 0],
+                          scale: [1, 0.8, 1.2, 0.9, 1]
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          repeat: 6,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <Zap className="w-16 h-16 sm:w-20 sm:h-20 text-yellow-400" />
+                      </motion.div>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
