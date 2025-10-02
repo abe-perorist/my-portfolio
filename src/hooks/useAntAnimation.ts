@@ -56,16 +56,19 @@ export function useAntAnimation() {
 
     setAnimatingWords(wordDataList)
 
-    // アニメーション完了後、再構築エリアにテキストを表示
+    // アニメーション完了後、少し待ってから再構築エリアにテキストを表示
     setTimeout(() => {
-      // ランダムな順序で単語を並び替え
-      const shuffledWords = [...words].sort(() => Math.random() - 0.5)
-      const newText = shuffledWords.map(w => w.text).join('')
-      setReconstructedText(newText)
-      
-      // アニメーション状態をクリア
+      // アニメーション状態をクリア（アリが消える）
       setAnimatingWords([])
-      setIsAnimating(false)
+      
+      // さらに0.5秒待ってから再構築テキストを表示（アリが完全に消えてから）
+      setTimeout(() => {
+        // ランダムな順序で単語を並び替え
+        const shuffledWords = [...words].sort(() => Math.random() - 0.5)
+        const newText = shuffledWords.map(w => w.text).join('')
+        setReconstructedText(newText)
+        setIsAnimating(false)
+      }, 500) // アリが消えてから0.5秒後に表示
     }, 3000) // アニメーション時間
   }, [isAnimating])
 
