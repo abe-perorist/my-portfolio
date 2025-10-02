@@ -51,6 +51,9 @@ export function ReconstructionArea({ text, isAnimating = false }: Reconstruction
               <p className="text-sm font-medium">
                 アリが文字を運んでいます...
               </p>
+              <p className="text-xs text-gray-600 mt-1">
+                文字が集まったら新しい文章になります
+              </p>
             </motion.div>
           ) : text ? (
             <motion.div
@@ -70,9 +73,9 @@ export function ReconstructionArea({ text, isAnimating = false }: Reconstruction
               </div>
               <motion.p
                 className="text-xl text-gray-800 leading-relaxed max-w-3xl mx-auto"
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.3, type: 'spring', stiffness: 200, damping: 20 }}
               >
                 {splitText.map((char, index) => (
                   <motion.span
