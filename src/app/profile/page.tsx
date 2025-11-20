@@ -2,82 +2,72 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { 
-  Coffee, 
-  Gamepad2, 
-  Camera, 
-  Music, 
-  BookOpen, 
-  Code, 
+import {
+  Coffee,
+  Gamepad2,
+  Camera,
+  Music,
+  BookOpen,
+  Code,
   Mail,
   Github,
   Twitter,
   ArrowRight,
-  Heart,
-  Sparkles,
-  Zap
+  User,
+  Briefcase,
+  GraduationCap
 } from 'lucide-react'
-import { AnimatedParagraph } from '@/components/AnimatedParagraph'
-import { AntWord } from '@/components/AntWord'
-import { ReconstructionArea } from '@/components/ReconstructionArea'
-import { useAntAnimation } from '@/hooks/useAntAnimation'
 
 export default function ProfilePage() {
-  const { animatingWords, reconstructedText, startAnimation, isAnimating } = useAntAnimation()
-
   const hobbies = [
-    { icon: Coffee, name: "コーヒー", description: "サードウェーブコーヒーを巡るのが趣味。最近はエアロプレスにハマってます ☕" },
-    { icon: Gamepad2, name: "ゲーム", description: "インディーゲームが大好き。特にナラティブ系とパズルゲームを好みます 🎮" },
-    { icon: Camera, name: "写真", description: "街歩きしながらスナップ撮影。日常の「いい感じ」を切り取るのが楽しい 📷" },
-    { icon: Music, name: "音楽", description: "ジャンル問わず聴きますが、最近はローファイヒップホップで作業してます 🎵" },
-    { icon: BookOpen, name: "読書", description: "ビジネス書とSFが中心。最近は認知科学系の本にも興味津々 📚" },
-    { icon: Code, name: "プログラミング", description: "趣味でも個人開発。新しい技術を試すのが楽しくて仕方ない 💻" },
+    { icon: Coffee, name: "コーヒー", description: "サードウェーブコーヒーを巡るのが趣味。最近はエアロプレスにハマってます" },
+    { icon: Gamepad2, name: "ゲーム", description: "インディーゲームが大好き。特にナラティブ系とパズルゲームを好みます" },
+    { icon: Camera, name: "写真", description: "街歩きしながらスナップ撮影。日常の「いい感じ」を切り取るのが楽しい" },
+    { icon: Music, name: "音楽", description: "ジャンル問わず聴きますが、最近はローファイヒップホップで作業してます" },
+    { icon: BookOpen, name: "読書", description: "ビジネス書とSFが中心。最近は認知科学系の本にも興味津々" },
+    { icon: Code, name: "プログラミング", description: "趣味でも個人開発。新しい技術を試すのが楽しくて仕方ない" },
   ]
 
   const skills = [
-    { 
-      category: "プロダクト企画", 
+    {
+      category: "プロダクト企画",
       items: [
         { name: "ユーザーリサーチ", level: 90 },
         { name: "競合分析", level: 85 },
         { name: "ジョブ理論", level: 80 },
         { name: "行動設計", level: 75 }
-      ], 
-      color: "#0066FF",
-      icon: "🎯"
+      ],
+      color: "bg-blue-500",
     },
-    { 
-      category: "UI/UX", 
+    {
+      category: "UI/UX",
       items: [
         { name: "Figma", level: 85 },
         { name: "プロトタイピング", level: 80 },
         { name: "ユーザビリティテスト", level: 75 },
         { name: "デザインシステム", level: 70 }
-      ], 
-      color: "#FF4081",
-      icon: "🎨"
+      ],
+      color: "bg-pink-500",
     },
-    { 
-      category: "開発", 
+    {
+      category: "開発",
       items: [
         { name: "React/Next.js", level: 80 },
         { name: "TypeScript", level: 75 },
         { name: "Node.js", level: 65 },
         { name: "Firebase", level: 70 }
-      ], 
-      color: "#00E676",
-      icon: "💻"
+      ],
+      color: "bg-emerald-500",
     },
-    { 
-      category: "データ分析", 
+    {
+      category: "データ分析",
       items: [
         { name: "Google Analytics", level: 85 },
         { name: "A/Bテスト", level: 80 },
         { name: "SQL", level: 70 },
         { name: "データビジュアライゼーション", level: 65 }
-      ], 
-      color: "#FF9100",
-      icon: "📊"
+      ],
+      color: "bg-orange-500",
     },
   ]
 
@@ -85,204 +75,108 @@ export default function ProfilePage() {
     {
       year: "2024",
       title: "フリーランスPdMとして独立",
-      description: "複数のスタートアップでプロダクト開発を支援。企画から実装まで一貫してサポート中 🚀",
+      description: "複数のスタートアップでプロダクト開発を支援。企画から実装まで一貫してサポート中。",
       highlight: true
     },
     {
       year: "2022-2023",
       title: "EdTechスタートアップでPdM",
-      description: "学習プラットフォームの企画・開発をリード。ユーザー数3倍、継続率40%向上を達成 📈"
+      description: "学習プラットフォームの企画・開発をリード。ユーザー数3倍、継続率40%向上を達成。"
     },
     {
       year: "2020-2022",
       title: "Web制作会社でディレクター",
-      description: "クライアントワークを通じてビジネス視点を習得。要件定義からリリースまで20案件以上を担当 💼"
+      description: "クライアントワークを通じてビジネス視点を習得。要件定義からリリースまで20案件以上を担当。"
     },
     {
       year: "2018-2020",
       title: "エンジニアとしてキャリアスタート",
-      description: "フロントエンド開発からスタート。技術の楽しさとものづくりの奥深さに目覚める ⚡"
+      description: "フロントエンド開発からスタート。技術の楽しさとものづくりの奥深さに目覚める。"
     },
     {
       year: "2018",
       title: "文系大学卒業",
-      description: "心理学専攻。人の行動や思考に興味を持ち、それが今のプロダクト設計に活かされています 🧠"
+      description: "心理学専攻。人の行動や思考に興味を持ち、それが今のプロダクト設計に活かされています。"
     }
   ]
 
   return (
-    <div className="min-h-screen pop-bg-light">
-      {/* ヒーローセクション */}
-      <section className="py-20 sm:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="py-20 bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-center space-y-8"
+            transition={{ duration: 0.5 }}
           >
-            {/* プロフィールアイコン */}
-            <motion.div
-              className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="w-full h-full pop-icon pop-icon-accent flex items-center justify-center">
-                <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
-              </div>
-              <motion.div
-                className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent-green rounded-full flex items-center justify-center"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 180, 360]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-              </motion.div>
-            </motion.div>
-
-            {/* アピール文 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center"
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                役に立たないことが好き
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                でも、その「役に立たない」が実は一番役に立つ瞬間があるんです ✨<br />
-                遊び心と仕組みづくりで、ちょっとした驚きをプロダクトに込めています
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 自己紹介 */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">ざっくり自己紹介</h2>
-            <div className="pop-card text-left max-w-3xl mx-auto">
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <AnimatedParagraph onRead={startAnimation}>
-                  文系出身でプログラミングは完全に独学からスタート。最初は「Hello World」すら理解できませんでした 😅 でも作ったものが動く瞬間の感動が忘れられず、気づいたらエンジニアになっていました。
-                </AnimatedParagraph>
-                <AnimatedParagraph onRead={startAnimation}>
-                  開発経験を積む中で「技術って手段だよね」と気づき、ユーザーが本当に欲しいものを作りたくてPdMに転向。心理学専攻だった背景もあって、ユーザー心理を考えるのがめちゃくちゃ楽しいです。
-                </AnimatedParagraph>
-                <AnimatedParagraph onRead={startAnimation}>
-                  最近は「技術×デザイン×ビジネス」の交差点でアウトプットすることに夢中。一つの専門分野を極めるより、複数の分野をつなげて価値を生み出すのが自分らしい働き方だと思ってます ✨
-                </AnimatedParagraph>
-                <AnimatedParagraph 
-                  className="pop-text font-medium"
-                  onRead={startAnimation}
-                >
-                  「この人と一緒に働いたら楽しそう」と思ってもらえるような人でありたいです！
-                </AnimatedParagraph>
-              </div>
+            <div className="w-24 h-24 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-8">
+              <User className="w-12 h-12 text-gray-400" />
             </div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-6">
+              Profile
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              「役に立たない」が実は一番役に立つ瞬間がある。<br />
+              遊び心と仕組みづくりで、ちょっとした驚きをプロダクトに込めています。
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 趣味・興味 */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">趣味・好きなこと</h2>
-            <p className="text-lg text-gray-600">仕事以外の時間はこんなことをして過ごしています</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hobbies.map((hobby, index) => {
-              const IconComponent = hobby.icon
-              return (
-                <motion.div
-                  key={hobby.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  viewport={{ once: true }}
-                  className="pop-card text-center"
-                >
-                  <IconComponent className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{hobby.name}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">{hobby.description}</p>
-                </motion.div>
-              )
-            })}
+      {/* Introduction */}
+      <section className="py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="card">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">About Me</h2>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                文系出身でプログラミングは完全に独学からスタート。最初は「Hello World」すら理解できませんでした。でも作ったものが動く瞬間の感動が忘れられず、気づいたらエンジニアになっていました。
+              </p>
+              <p>
+                開発経験を積む中で「技術って手段だよね」と気づき、ユーザーが本当に欲しいものを作りたくてPdMに転向。心理学専攻だった背景もあって、ユーザー心理を考えるのがとても楽しいです。
+              </p>
+              <p>
+                最近は「技術×デザイン×ビジネス」の交差点でアウトプットすることに夢中。一つの専門分野を極めるより、複数の分野をつなげて価値を生み出すのが自分らしい働き方だと思ってます。
+              </p>
+              <p className="font-medium text-primary">
+                「この人と一緒に働いたら楽しそう」と思ってもらえるような人でありたいです！
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* スキル */}
-      <section className="py-16 bg-white">
+      {/* Skills */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">できること</h2>
-            <p className="text-lg text-gray-600">幅広くやってますが、特に得意な分野です</p>
-          </motion.div>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Skills</h2>
+            <p className="text-gray-600">幅広くやってますが、特に得意な分野です</p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.category}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="pop-card"
+                className="card"
               >
-                <div className="flex items-center space-x-3 mb-6">
-                  <div 
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg border-2"
-                    style={{ 
-                      backgroundColor: skill.color,
-                      borderColor: skill.color
-                    }}
-                  >
-                    {skill.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">{skill.category}</h3>
-                </div>
-                
+                <h3 className="text-lg font-bold text-gray-900 mb-6">{skill.category}</h3>
                 <div className="space-y-4">
-                  {skill.items.map((item, itemIndex) => (
+                  {skill.items.map((item) => (
                     <div key={item.name} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-gray-800">{item.name}</span>
-                        <span className="text-xs text-gray-600">{item.level}%</span>
+                        <span className="text-sm font-medium text-gray-700">{item.name}</span>
+                        <span className="text-xs text-gray-500">{item.level}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <motion.div
-                          className="h-2 rounded-full"
-                          style={{ backgroundColor: skill.color }}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${item.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.2 + itemIndex * 0.1 }}
-                          viewport={{ once: true }}
+                      <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${skill.color}`}
+                          style={{ width: `${item.level}%` }}
                         />
                       </div>
                     </div>
@@ -294,117 +188,97 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* 経歴タイムライン */}
-      <section className="py-16 bg-gray-50">
+      {/* Timeline */}
+      <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">これまでの歩み</h2>
-            <p className="text-lg text-gray-600">いろいろ寄り道しながらここまで来ました</p>
-          </motion.div>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Timeline</h2>
+            <p className="text-gray-600">これまでの歩み</p>
+          </div>
 
           <div className="space-y-8">
             {timeline.map((item, index) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start space-x-6"
-              >
-                <div className="flex-shrink-0">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
-                    item.highlight 
-                      ? 'pop-icon pop-icon-secondary' 
-                      : 'bg-gray-400'
-                  }`}>
-                    {item.highlight ? <Zap className="w-6 h-6" /> : item.year.slice(-2)}
-                  </div>
+              <div key={item.year} className="flex gap-6">
+                <div className="flex-shrink-0 w-24 text-right pt-1">
+                  <span className="text-sm font-bold text-primary">{item.year}</span>
                 </div>
-                <div className="flex-1 pop-card-neutral">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-sm font-medium text-blue-600">{item.year}</span>
+                <div className="flex-1 pb-8 border-l border-gray-200 pl-8 relative">
+                  <div className={`absolute left-0 top-2 w-3 h-3 -translate-x-1.5 rounded-full border-2 border-white ${item.highlight ? 'bg-primary' : 'bg-gray-300'}`} />
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    {item.title}
                     {item.highlight && (
-                      <span className="pop-badge-neutral text-xs">
-                        現在
-                      </span>
+                      <span className="text-xs bg-primary-light text-primary px-2 py-0.5 rounded-full">Current</span>
                     )}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  </h3>
+                  <p className="text-gray-600">{item.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 連絡先・SNS */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">つながりましょう！</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              お仕事のご相談やカジュアルな雑談、どちらも大歓迎です 🙌
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Link
-                href="/contact"
-                className="pop-button flex items-center space-x-2 group"
-              >
-                <Mail className="w-5 h-5" />
-                <span>お問い合わせフォーム</span>
-                <ArrowRight className="w-4 h-4 hover-translate" />
-              </Link>
-              
-              <div className="flex space-x-4">
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="pop-button-white group"
-                  style={{ padding: '0.75rem' }}
-                >
-                  <Twitter className="w-5 h-5 hover-scale" />
-                </a>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="pop-button-white group"
-                  style={{ padding: '0.75rem' }}
-                >
-                  <Github className="w-5 h-5 hover-scale" />
-                </a>
-              </div>
-            </div>
+      {/* Hobbies */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Hobbies</h2>
+            <p className="text-gray-600">仕事以外の時間はこんなことをして過ごしています</p>
+          </div>
 
-            <p className="text-sm text-gray-500">
-              気軽にDMください！レスポンスは早めを心がけています ⚡
-            </p>
-          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {hobbies.map((hobby, index) => {
+              const IconComponent = hobby.icon
+              return (
+                <div key={hobby.name} className="card text-center">
+                  <IconComponent className="w-8 h-8 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{hobby.name}</h3>
+                  <p className="text-sm text-gray-600">{hobby.description}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
-      {/* アニメーション中の単語 */}
-      {animatingWords.map((word, index) => (
-        <AntWord key={word.id} word={word} delay={index * 0.05} />
-      ))}
+      {/* CTA */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">つながりましょう！</h2>
+          <p className="text-gray-600 mb-8">
+            お仕事のご相談やカジュアルな雑談、どちらも大歓迎です。
+          </p>
 
-      {/* 再構築エリア */}
-      <ReconstructionArea text={reconstructedText} isAnimating={isAnimating} />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="btn-primary"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              お問い合わせフォーム
+            </Link>
+
+            <div className="flex gap-4">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 transition-colors"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-gray-200 transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

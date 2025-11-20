@@ -1,22 +1,67 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Modern Professional Palette */
+  --background: #F8FAFC; /* Slate 50 */
+  --foreground: #0F172A; /* Slate 900 */
+  
+  /* Primary Brand Colors */
+  --primary: #4F46E5;      /* Indigo 600 */
+  --primary-hover: #4338CA; /* Indigo 700 */
+  --primary-light: #E0E7FF; /* Indigo 100 */
+  
+  /* Secondary/Accent */
+  --accent: #14B8A6;       /* Teal 500 */
+  --accent-hover: #0D9488; /* Teal 600 */
+  
+  /* Surface Colors */
+  --surface: #FFFFFF;
+  --surface-hover: #F1F5F9; /* Slate 100 */
+  
+  /* Text Colors */
+  --text-main: #0F172A;    /* Slate 900 */
+  --text-muted: #64748B;   /* Slate 500 */
+  --text-light: #94A3B8;   /* Slate 400 */
+  
+  /* Borders */
+  --border: #E2E8F0;       /* Slate 200 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0F172A; /* Slate 900 */
+    --foreground: #F8FAFC; /* Slate 50 */
+    
+    --primary: #6366F1;      /* Indigo 500 */
+    --primary-hover: #818CF8; /* Indigo 400 */
+    --primary-light: #1E293B; /* Slate 800 */
+    
+    --accent: #2DD4BF;       /* Teal 400 */
+    
+    --surface: #1E293B;      /* Slate 800 */
+    --surface-hover: #334155; /* Slate 700 */
+    
+    --text-main: #F8FAFC;    /* Slate 50 */
+    --text-muted: #94A3B8;   /* Slate 400 */
+    --text-light: #64748B;   /* Slate 500 */
+    
+    --border: #334155;       /* Slate 700 */
   }
 }
 
@@ -31,432 +76,96 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', system-ui, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* カスタムスクロールバー */
+/* Modern Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00D4FF;
+  background: #CBD5E1; /* Slate 300 */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00A8CC;
+  background: #94A3B8; /* Slate 400 */
 }
 
 /* ==========================================================================
-   MOTION DESIGN SYSTEM - 統一されたアニメーション設定
+   UTILITY CLASSES
    ========================================================================== */
 
-/* アニメーション時間の定義 */
-:root {
-  /* Duration Scale - 用途別の統一された時間設定 */
-  --duration-instant: 150ms;    /* マイクロインタラクション（ホバー、フォーカス） */
-  --duration-fast: 250ms;       /* UIの状態変化（ボタン、リンク） */
-  --duration-normal: 400ms;     /* 標準的なアニメーション（カード、モーダル） */
-  --duration-slow: 600ms;       /* 大きな変化（ページ要素の登場） */
-  --duration-emphasis: 800ms;   /* 注意を引くアニメーション */
-
-  /* Easing Functions - 用途別のイージング */
-  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);        /* 標準の出現 */
-  --ease-in: cubic-bezier(0.55, 0.085, 0.68, 0.53);        /* 消失 */
-  --ease-in-out: cubic-bezier(0.445, 0.05, 0.55, 0.95);    /* 双方向 */
-  --ease-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);     /* 弾力のある動き */
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);             /* Material Design */
-
-  /* Transform Values - 統一されたスケールと移動値 */
-  --scale-micro: 1.02;          /* 微細なスケール */
-  --scale-small: 1.05;          /* 小さなスケール */
-  --scale-medium: 1.1;          /* 中程度のスケール */
-  --scale-large: 1.15;          /* 大きなスケール */
-
-  --translate-micro: 2px;       /* 微細な移動 */
-  --translate-small: 4px;       /* 小さな移動 */
-  --translate-medium: 8px;      /* 中程度の移動 */
-  --translate-large: 12px;      /* 大きな移動 */
+/* Typography */
+.text-balance {
+  text-wrap: balance;
 }
 
-/* 統一されたホバーエフェクト */
-.hover-lift {
-  transition: transform var(--duration-fast) var(--ease-back),
-              box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.hover-lift:hover {
-  transform: scale(var(--scale-micro)) translateY(calc(-1 * var(--translate-micro)));
-}
-
-.hover-scale {
-  transition: transform var(--duration-instant) var(--ease-out);
-}
-
-.hover-scale:hover {
-  transform: scale(var(--scale-small));
-}
-
-.hover-translate {
-  transition: transform var(--duration-instant) var(--ease-out);
-}
-
-.hover-translate:hover {
-  transform: translateX(var(--translate-small));
-}
-
-/* 遊び心のあるホバーエフェクト（統一版） */
-.bounce-hover {
-  transition: transform var(--duration-fast) var(--ease-back);
-}
-
-.bounce-hover:hover {
-  transform: scale(var(--scale-small)) translateY(calc(-1 * var(--translate-micro)));
-}
-
-/* フワッとした影のエフェクト（統一版） */
-.soft-shadow {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.soft-shadow:hover {
-  box-shadow: 0 10px 25px -3px rgba(0, 212, 255, 0.3), 0 4px 6px -2px rgba(0, 212, 255, 0.05);
-}
-
-/* ==========================================================================
-   POP DESIGN SYSTEM - ポップで立体的なデザインシステム
-   ========================================================================== */
-
-/* ビビッドカラーパレット（単色ベース） */
-:root {
-  /* メインカラー: 彩度の高いビビッドブルー */
-  --color-primary: #0066FF;           /* メインのビビッドブルー */
-  --color-primary-light: #3384FF;     /* ライトバリエーション */
-  --color-primary-dark: #0052CC;      /* ダークバリエーション */
-  
-  /* アクセントカラー */
-  --color-accent: #FF4081;            /* ビビッドピンク */
-  --color-secondary: #00E676;         /* ビビッドグリーン */
-  --color-warning: #FF9100;           /* オレンジ */
-  --color-success: #00C853;           /* 成功グリーン */
-  
-  /* ニュートラルカラー */
-  --color-white: #FFFFFF;
-  --color-light-gray: #F8F9FA;       /* 極薄グレー背景 */
-  --color-gray: #6C757D;              /* テキストグレー */
-  --color-dark: #212529;              /* ダークテキスト */
-  
-  /* 立体感のためのシャドウ定義 */
-  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 4px 12px rgba(0, 102, 255, 0.15);
-  --shadow-strong: 0 8px 24px rgba(0, 102, 255, 0.25);
-  --shadow-pop: 0 12px 32px rgba(0, 102, 255, 0.3);
-  
-  /* ボーダー定義 */
-  --border-thin: 2px;
-  --border-medium: 3px;
-  --border-thick: 4px;
-  --border-radius: 16px;
-  --border-radius-small: 12px;
-  --border-radius-large: 24px;
-}
-
-/* ポップなテキスト（単色） */
-.pop-text {
-  color: var(--color-primary);
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 102, 255, 0.1);
-}
-
-/* 立体的なボタンスタイル */
-.pop-button {
-  background: var(--color-primary);
-  border: var(--border-medium) solid var(--color-primary-dark);
-  border-radius: var(--border-radius);
-  color: white;
-  font-weight: 700;
-  padding: 1rem 2rem;
-  position: relative;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(0);
-  cursor: pointer;
-}
-
-.pop-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-strong);
-  background: var(--color-primary-light);
-}
-
-.pop-button:active {
-  transform: translateY(2px);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--duration-instant) var(--ease-out);
-}
-
-/* 白背景の立体ボタン */
-.pop-button-white {
-  background: var(--color-white);
-  border: var(--border-medium) solid var(--color-primary);
-  border-radius: var(--border-radius);
-  color: var(--color-primary);
-  font-weight: 700;
-  padding: 1rem 2rem;
-  position: relative;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(0);
-  cursor: pointer;
-}
-
-.pop-button-white:hover {
-  transform: translateY(-2px);
-  background: var(--color-primary);
-  color: white;
-  box-shadow: var(--shadow-strong);
-}
-
-.pop-button-white:active {
-  transform: translateY(2px);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--duration-instant) var(--ease-out);
-}
-
-/* 立体的なカードスタイル */
-.pop-card {
-  background: var(--color-white);
-  border: var(--border-medium) solid var(--color-primary);
-  border-radius: var(--border-radius);
-  padding: 1.5rem;
-  transition: all var(--duration-normal) var(--ease-back);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(0) rotate(0deg);
-  position: relative;
-}
-
-.pop-card:hover {
-  transform: translateY(-4px) rotate(1deg);
-  box-shadow: var(--shadow-pop);
-  border-color: var(--color-primary-light);
-}
-
-.pop-card:active {
-  transform: translateY(2px) rotate(0deg);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--duration-instant) var(--ease-out);
-}
-
-/* ニュートラルなカード（グレーボーダー） */
-.pop-card-neutral {
-  background: var(--color-white);
-  border: var(--border-thin) solid var(--color-gray);
-  border-radius: var(--border-radius-small);
-  padding: 1rem;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: var(--shadow-subtle);
-  transform: translateY(0);
-}
-
-.pop-card-neutral:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
-  border-color: var(--color-primary);
-}
-
-/* アイコン背景（立体効果） */
-.pop-icon {
-  background: var(--color-primary);
-  border: var(--border-medium) solid var(--color-primary-dark);
-  border-radius: var(--border-radius);
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: var(--shadow-medium);
-  transform: translateY(0);
-}
-
-.pop-icon:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: var(--shadow-strong);
-  background: var(--color-primary-light);
-}
-
-/* カラーバリエーション */
-.pop-icon-accent {
-  background: var(--color-accent);
-  border-color: #E91E63;
-}
-
-.pop-icon-accent:hover {
-  background: #FF6090;
-}
-
-.pop-icon-secondary {
-  background: var(--color-secondary);
-  border-color: #00C853;
-}
-
-.pop-icon-secondary:hover {
-  background: #4AEF8A;
-}
-
-.pop-icon-warning {
-  background: var(--color-warning);
-  border-color: #FF6F00;
-}
-
-.pop-icon-warning:hover {
-  background: #FFB74D;
-}
-
-/* バッジ・タグスタイル */
-.pop-badge {
-  background: var(--color-primary);
-  border: var(--border-thin) solid var(--color-primary-dark);
-  border-radius: var(--border-radius-small);
-  color: white;
-  font-weight: 600;
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
+/* Buttons */
+.btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: var(--shadow-subtle);
-  transform: translateY(0);
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 500;
+  border-radius: 9999px; /* Full rounded */
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.pop-badge:hover {
+.btn-primary:hover {
+  background-color: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-medium);
-  background: var(--color-primary-light);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* バッジカラーバリエーション */
-.pop-badge-accent {
-  background: var(--color-accent);
-  border-color: #E91E63;
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--surface);
+  color: var(--text-main);
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  transition: all 0.2s ease;
 }
 
-.pop-badge-accent:hover {
-  background: #FF6090;
+.btn-secondary:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--text-muted);
 }
 
-.pop-badge-secondary {
-  background: var(--color-secondary);
-  border-color: #00C853;
-}
-
-.pop-badge-secondary:hover {
-  background: #4AEF8A;
-}
-
-.pop-badge-neutral {
-  background: var(--color-white);
-  border: var(--border-thin) solid var(--color-gray);
-  color: var(--color-dark);
-}
-
-.pop-badge-neutral:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-/* 背景スタイル（グラデーション置き換え） */
-.pop-bg-light {
-  background: var(--color-light-gray);
-}
-
-.pop-bg-white {
-  background: var(--color-white);
-}
-
-/* セクション背景（微細なパターン） */
-.pop-section {
-  background: var(--color-white);
-  position: relative;
-}
-
-.pop-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(0, 102, 255, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255, 64, 129, 0.02) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* アクセシビリティ向上のためのコントラスト強化 */
-.text-contrast-high {
-  color: #1a1a1a;
-}
-
-.bg-white-safe {
-  background-color: #ffffff;
-  color: #1a1a1a;
-}
-
-.link-contrast {
-  color: #0066cc;
-  text-decoration: underline;
-  text-decoration-color: transparent;
+/* Cards */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
-.link-contrast:hover {
-  color: #004499;
-  text-decoration-color: currentColor;
+.card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
 }
 
-/* 白背景のCTAボタン用（統一版） */
-.cta-white-button {
-  background-color: #ffffff;
-  color: #0066cc;
-  border: 2px solid #0066cc;
-  border-radius: 1.5rem;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  transition: all var(--duration-fast) var(--ease-back);
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
-}
-
-.cta-white-button:hover {
-  background-color: #0066cc;
-  color: #ffffff;
-  transform: translateY(calc(-1 * var(--translate-micro))) scale(var(--scale-micro));
-  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
-}
-
-.cta-white-button:active {
-  transform: translateY(0) scale(0.98);
-  transition: all var(--duration-instant) var(--ease-out);
-}
-
-/* 統一されたborder/backgroundトランジション */
-.transition-colors {
-  transition: color var(--duration-fast) var(--ease-out),
-              background-color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out);
-}
-
-.transition-all-smooth {
-  transition: all var(--duration-fast) var(--ease-out);
+/* Section Backgrounds */
+.bg-grid-pattern {
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }

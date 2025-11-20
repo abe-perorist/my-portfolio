@@ -6,142 +6,108 @@ import { ArrowRight, Sparkles, Rocket, Heart } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="min-h-screen pop-bg-light">
-      {/* ヒーローセクション */}
-      <section className="relative overflow-hidden py-20 sm:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* メインキャッチコピー */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="space-y-6"
-            >
-              <div className="flex justify-center mb-8">
-                <motion.div
-                  className="relative"
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="pop-icon pop-icon-secondary" style={{ width: '6rem', height: '6rem' }}>
-                    <Sparkles className="w-12 h-12 text-white" />
-                  </div>
-                </motion.div>
-              </div>
-
-              <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 tracking-tight">
-                <span className="block">遊び心と仕組みづくりで</span>
-                <span className="block pop-text mt-2">サービスを形にする</span>
-                <span className="block text-3xl sm:text-5xl mt-4">PdM</span>
-              </h1>
-
-              <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                企画から実装まで一貫して担当し、<br className="sm:hidden" />
-                ユーザーに愛されるプロダクトを作り続けています 🚀
-              </p>
-            </motion.div>
-
-            {/* CTAボタン */}
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.5 }}
             >
-              <Link
-                href="/works"
-                className="pop-button flex items-center space-x-2 group"
-              >
-                <span>作品を見る</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 hover-translate" />
-              </Link>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary-light text-primary text-sm font-medium mb-8">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Product Manager Portfolio
+              </span>
 
-              <Link
-                href="/profile"
-                className="pop-button-white flex items-center space-x-2 group"
-              >
-                <Heart className="w-5 h-5 hover-scale" />
-                <span>プロフィール</span>
-              </Link>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight mb-8 text-balance">
+                遊び心と仕組みづくりで<br />
+                <span className="text-primary">サービスを形にする</span>
+              </h1>
+
+              <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed text-balance">
+                企画から実装まで一貫して担当し、ユーザーに愛されるプロダクトを作り続けています。
+                データと直感の両輪で、価値ある体験を届けます。
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/works"
+                  className="btn-primary group"
+                >
+                  <span>作品を見る</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <Link
+                  href="/profile"
+                  className="btn-secondary"
+                >
+                  プロフィール
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
 
-        {/* 背景装飾 */}
+        {/* Background Decoration */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-blue/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-green/10 rounded-full blur-3xl"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.5, 0.3, 0.5],
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50 via-white to-white opacity-70" />
+          <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-[0.03]" />
         </div>
       </section>
 
-      {/* 特徴セクション */}
-      <section className="py-20 pop-section">
+      {/* Features Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              こんなことを大切にしています
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              大切にしている価値観
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              ただ機能を作るだけじゃなく、ユーザーの心に響くサービスを目指しています
+            <p className="text-lg text-gray-600">
+              機能を作るだけでなく、体験そのものをデザインします
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: Sparkles,
                 title: "遊び心",
-                description: "堅苦しくない、使っていて楽しいUIUXを心がけています。ちょっとした驚きや発見があるプロダクトが好きです。",
-                color: "from-accent-blue to-blue-400",
+                description: "堅苦しくない、使っていて楽しいUI/UXを心がけています。ちょっとした驚きや発見があるプロダクトが好きです。",
+                color: "text-indigo-600",
+                bg: "bg-indigo-50",
               },
               {
                 icon: Rocket,
                 title: "仕組みづくり",
                 description: "単発の改善ではなく、継続的に価値を生み出せる仕組みを作ることを重視しています。",
-                color: "from-accent-green to-green-400",
+                color: "text-teal-600",
+                bg: "bg-teal-50",
               },
               {
                 icon: Heart,
                 title: "ユーザー視点",
                 description: "データも大切ですが、実際にユーザーの声を聞いて、本当に求められているものを作りたいと思っています。",
-                color: "from-accent-orange to-red-400",
+                color: "text-rose-600",
+                bg: "bg-rose-50",
               },
             ].map((feature, index) => {
               const IconComponent = feature.icon
               return (
                 <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="pop-card text-center group"
+                  className="card group"
                 >
-                  <div className={`pop-icon mx-auto mb-6 ${index === 0 ? 'pop-icon-accent' : index === 1 ? 'pop-icon-secondary' : 'pop-icon-warning'}`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${feature.bg} ${feature.color}`}>
+                    <IconComponent className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                 </motion.div>
               )
@@ -150,30 +116,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA セクション */}
-      <section className="py-20" style={{ background: 'var(--color-primary)' }}>
+      {/* CTA Section */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-white"
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            一緒に新しい価値を作りませんか？
+          </h2>
+          <p className="text-xl text-gray-600 mb-10">
+            新しいアイデアや相談事があれば、お気軽にお声がけください。
+          </p>
+          <Link
+            href="/contact"
+            className="btn-primary text-lg px-8 py-4"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              一緒に何か面白いことしませんか？
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              新しいアイデアや相談事があれば、気軽にお声がけください！
-            </p>
-            <Link
-              href="/contact"
-              className="pop-button-white inline-flex items-center space-x-2 text-lg group"
-            >
-              <span>お話ししましょう</span>
-              <ArrowRight className="w-5 h-5 hover-translate" />
-            </Link>
-          </motion.div>
+            お話ししましょう
+          </Link>
         </div>
       </section>
     </div>
