@@ -198,7 +198,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <Database className="w-6 h-6" />
               </div>
               <div className="flex-1">
@@ -283,7 +283,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <FileText className="w-6 h-6" />
               </div>
               <div className="flex-1">
@@ -343,7 +343,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <Lock className="w-6 h-6" />
               </div>
               <div className="flex-1">
@@ -372,7 +372,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <Key className="w-6 h-6" />
               </div>
               <div className="flex-1">
@@ -411,7 +411,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <Shield className="w-6 h-6" />
               </div>
               <div className="flex-1">
@@ -456,7 +456,7 @@ export default function PrivacyPage() {
             className="card mb-8"
           >
             <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-primary-light text-primary flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 text-gray-700 flex items-center justify-center flex-shrink-0">
                 <FileText className="w-6 h-6" />
               </div>
               <div className="flex-1">
