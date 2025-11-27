@@ -145,10 +145,10 @@ export default function PrivacyPage() {
             </h1>
             <div className="text-left max-w-2xl mx-auto mb-8">
               <p className="text-lg font-semibold text-gray-900 mb-4">対象となる拡張機能:</p>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-3 text-gray-800">
                 {extensionNames.map((name, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-primary mr-2">{index + 1}.</span>
+                  <li key={index} className="flex items-start text-base leading-relaxed">
+                    <span className="text-primary mr-3 font-semibold">{index + 1}.</span>
                     <span>{name}</span>
                   </li>
                 ))}
@@ -171,18 +171,18 @@ export default function PrivacyPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="card mb-12"
           >
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-800 leading-loose mb-5 text-base">
               当開発者は、上記に記載された拡張機能（以下、「本拡張機能」といいます）のユーザーのプライバシーを尊重し、個人情報およびその他のユーザーデータを適切に取り扱うことをお約束します。
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-gray-800 leading-loose mb-5 text-base">
               本ポリシーは、本拡張機能がどのようにデータを収集、利用、保存し、第三者と共有するかを説明するものです。
             </p>
-            <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+            <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-lg">
               <div className="flex items-start">
-                <AlertTriangle className="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" />
+                <AlertTriangle className="w-6 h-6 text-amber-600 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-amber-900 mb-1">ご注意（重要）</p>
-                  <p className="text-amber-800 text-sm">
+                  <p className="font-semibold text-amber-900 mb-2 text-lg">ご注意（重要）</p>
+                  <p className="text-amber-800 text-base leading-relaxed">
                     本拡張機能は、<strong>個人を特定できる情報（PII：氏名、メールアドレス、住所、電話番号、クレジットカード情報など）を一切収集しません。</strong>
                   </p>
                 </div>
@@ -202,70 +202,70 @@ export default function PrivacyPage() {
                 <Database className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   2. 収集する情報とその利用目的
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-800 leading-loose mb-6 text-base">
                   本拡張機能は、ユーザーによる「分析開始」または「ツイート生成」ボタンのクリック時に、機能の提供に必要な情報のみを収集・処理します。
                 </p>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 mt-6">2.1 外部に送信され、処理されるデータ</h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 mt-8">2.1 外部に送信され、処理されるデータ</h3>
+                <p className="text-gray-800 leading-relaxed mb-5 text-base">
                   AI機能の提供のために、外部サービス（Google Gemini API）に<strong>一時的に</strong>送信され、処理されるデータです。
                 </p>
                 
                 <div className="overflow-x-auto mb-6">
-                  <table className="w-full border-collapse border border-gray-300 text-sm">
+                  <table className="w-full border-collapse border border-gray-300 text-base">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">収集するデータ</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">収集方法</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">拡張機能</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">利用目的</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">収集するデータ</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">収集方法</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">拡張機能</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">利用目的</th>
                       </tr>
                     </thead>
                     <tbody>
                       {externalDataTable.map((row, index) => (
                         <tr key={index} className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700">{row.data}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600 text-xs">{row.method}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700">{row.extension}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600">{row.purpose}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800">{row.data}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700 text-sm leading-relaxed">{row.method}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800">{row.extension}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700">{row.purpose}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-4">
-                  <p className="text-blue-800 text-sm mb-2"><strong>データの除外:</strong> ページコンテンツの収集にあたっては、ヘッダー、フッター、ナビゲーション、広告要素、スクリプト、スタイルシートなどは除外されます。</p>
-                  <p className="text-blue-800 text-sm"><strong>データの保持:</strong> これらのデータは、APIリクエストの処理が完了次第、メモリ上から<strong>即座に破棄され、外部サーバーに永続的に保存されることはありません。</strong></p>
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-5 rounded-r-lg mb-6">
+                  <p className="text-blue-900 text-base mb-3 leading-relaxed"><strong>データの除外:</strong> ページコンテンツの収集にあたっては、ヘッダー、フッター、ナビゲーション、広告要素、スクリプト、スタイルシートなどは除外されます。</p>
+                  <p className="text-blue-900 text-base leading-relaxed"><strong>データの保持:</strong> これらのデータは、APIリクエストの処理が完了次第、メモリ上から<strong>即座に破棄され、外部サーバーに永続的に保存されることはありません。</strong></p>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 mt-6">2.2 ローカルおよび同期ストレージに保存されるデータ</h3>
-                <p className="text-gray-600 text-sm mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 mt-8">2.2 ローカルおよび同期ストレージに保存されるデータ</h3>
+                <p className="text-gray-800 leading-relaxed mb-5 text-base">
                   以下のデータは、機能の提供、設定の保持、利用制限の管理のために、ユーザーのブラウザ内またはChromeアカウントに紐づくクラウドストレージに保存されます。
                 </p>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300 text-sm">
+                  <table className="w-full border-collapse border border-gray-300 text-base">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">データの種類</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">保存場所</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">拡張機能</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">利用目的</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">保持期間/備考</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">データの種類</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">保存場所</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">拡張機能</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">利用目的</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">保持期間/備考</th>
                       </tr>
                     </thead>
                     <tbody>
                       {localDataTable.map((row, index) => (
                         <tr key={index} className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700">{row.data}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600 text-xs">{row.location}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700">{row.extension}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600">{row.purpose}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600 text-xs">{row.retention}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800">{row.data}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700 text-sm">{row.location}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800">{row.extension}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700">{row.purpose}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700 text-sm">{row.retention}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -287,45 +287,45 @@ export default function PrivacyPage() {
                 <FileText className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   3. 外部サービス（第三者）との通信
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-800 leading-loose mb-6 text-base">
                   本拡張機能は、以下の第三者サービスを利用しますが、ユーザーデータを<strong>広告目的で共有したり、販売したりすることはありません。</strong>
                 </p>
 
                 <div className="overflow-x-auto mb-6">
-                  <table className="w-full border-collapse border border-gray-300 text-sm">
+                  <table className="w-full border-collapse border border-gray-300 text-base">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">サービス名</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">役割</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">送信データ</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">データの保持</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">サービス名</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">役割</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">送信データ</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">データの保持</th>
                       </tr>
                     </thead>
                     <tbody>
                       {externalServices.map((service, index) => (
                         <tr key={index} className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700 font-medium">
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800 font-medium">
                             <a href={service.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">
                               {service.service}
-                              <ExternalLink className="w-3 h-3 ml-1" />
+                              <ExternalLink className="w-4 h-4 ml-1.5" />
                             </a>
                           </td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600">{service.role}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600">{service.data}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600 text-xs">{service.retention}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700">{service.role}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700">{service.data}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700 text-sm leading-relaxed">{service.retention}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
 
-                <div className="space-y-3 text-sm text-gray-700">
+                <div className="space-y-3 text-base text-gray-800 leading-relaxed">
                   <p><strong>通信の安全性:</strong> すべての通信はHTTPS（TLS 1.3）で暗号化されています。</p>
                   <p><strong>各サービスのプライバシーポリシー:</strong></p>
-                  <ul className="list-disc list-inside space-y-1 ml-4">
+                  <ul className="list-disc list-inside space-y-2 ml-4">
                     <li><a href="https://ai.google.dev/terms" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google AI Terms of Service</a></li>
                     <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Cloudflare Privacy Policy</a></li>
                     <li><a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Stripe Privacy Policy</a></li>
@@ -347,13 +347,13 @@ export default function PrivacyPage() {
                 <Lock className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   4. セキュリティ対策
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-loose mb-5 text-base">
                   当開発者は、ユーザーデータを保護するために以下のセキュリティ対策を講じています。
                 </p>
-                <ol className="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+                <ol className="list-decimal list-inside space-y-4 text-gray-800 ml-4 text-base leading-relaxed">
                   <li><strong>APIキーの隠蔽:</strong> Google Gemini APIキーは、クライアント側には一切露出せず、Cloudflare Workersの環境変数として安全に管理されています。</li>
                   <li><strong>暗号化通信:</strong> すべての外部通信（APIとのやり取り）はHTTPSで暗号化されています。</li>
                   <li><strong>XSS対策:</strong> すべてのAPIレスポンスとユーザー入力はHTMLエスケープ処理され、スクリプトインジェクション攻撃を防止しています。</li>
@@ -376,24 +376,24 @@ export default function PrivacyPage() {
                 <Key className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   5. 要求する権限と利用目的
                 </h2>
                 <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300 text-sm">
+                  <table className="w-full border-collapse border border-gray-300 text-base">
                     <thead>
                       <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">権限</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">利用目的</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">拡張機能</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">権限</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">利用目的</th>
+                        <th className="border border-gray-300 px-5 py-4 text-left font-semibold text-gray-900">拡張機能</th>
                       </tr>
                     </thead>
                     <tbody>
                       {permissionsTable.map((perm, index) => (
                         <tr key={index} className="hover:bg-gray-50">
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700 font-mono text-xs">{perm.permission}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-600">{perm.purpose}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-700">{perm.extension}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800 font-mono text-sm">{perm.permission}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-700 leading-relaxed">{perm.purpose}</td>
+                          <td className="border border-gray-300 px-5 py-4 text-gray-800">{perm.extension}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -415,33 +415,33 @@ export default function PrivacyPage() {
                 <Shield className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   6. ユーザーの権利とデータの削除
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-6">
+                <p className="text-gray-800 leading-loose mb-6 text-base">
                   ユーザーは、いつでもご自身のデータを完全にコントロールし、削除する権利を有します。
                 </p>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-4">6.1 拡張機能のアンインストールによる完全削除</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-relaxed mb-4 text-base">
                   拡張機能をアンインストールすると、Chrome Storage LocalおよびSyncに保存されていた<strong>すべてのデータが直ちに削除されます。</strong>
                 </p>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-4 mb-6">
-                  <li><code className="bg-gray-100 px-2 py-1 rounded text-sm">chrome://extensions/</code> を開く。</li>
+                <ol className="list-decimal list-inside space-y-2 text-gray-800 ml-4 mb-6 text-base leading-relaxed">
+                  <li><code className="bg-gray-100 px-3 py-1.5 rounded text-sm font-mono">chrome://extensions/</code> を開く。</li>
                   <li>対象の拡張機能を見つけ、「削除」をクリック。</li>
                 </ol>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-4">6.2 手動でのデータクリア</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-relaxed mb-4 text-base">
                   開発者ツールのコンソールから、手動でデータをクリアすることも可能です。
                 </p>
-                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg mb-6 font-mono text-sm overflow-x-auto">
+                <div className="bg-gray-900 text-gray-100 p-5 rounded-lg mb-6 font-mono text-base overflow-x-auto leading-relaxed">
                   <div>chrome.storage.local.clear();</div>
                   <div>chrome.storage.sync.clear();</div>
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-4">6.3 自動削除</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-800 leading-relaxed text-base">
                   使用ログおよびアクティベーションログは、最新のデータのみを保持し、古いデータは自動的に削除されます（使用ログは最新500件、アクティベーションログは最新100件）。
                 </p>
               </div>
@@ -460,17 +460,17 @@ export default function PrivacyPage() {
                 <FileText className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   7. プライバシーポリシーの変更
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-loose mb-5 text-base">
                   当開発者は、本ポリシーを随時更新することがあります。重要な変更を行う際は、以下のいずれかの方法でユーザーに通知します。
                 </p>
-                <ol className="list-decimal list-inside space-y-2 text-gray-700 ml-4">
+                <ol className="list-decimal list-inside space-y-2 text-gray-800 ml-4 mb-4 text-base leading-relaxed">
                   <li>Chrome Web Storeの拡張機能説明ページへの掲載。</li>
                   <li>重大な変更の場合は、拡張機能内の通知機能による告知。</li>
                 </ol>
-                <p className="text-gray-700 leading-relaxed mt-4">
+                <p className="text-gray-800 leading-relaxed mt-5 text-base">
                   ユーザーが変更後に本拡張機能の使用を継続した場合、変更後のポリシーに同意したものとみなされます。
                 </p>
               </div>
@@ -489,14 +489,14 @@ export default function PrivacyPage() {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-5">
                   8. お問い合わせ
                 </h2>
-                <p className="text-gray-700 leading-relaxed mb-4">
+                <p className="text-gray-800 leading-loose mb-5 text-base">
                   本プライバシーポリシーまたはデータの取り扱いについてご不明な点がある場合は、以下の連絡先までお問い合わせください。
                 </p>
-                <div className="space-y-2 text-gray-700">
-                  <p><strong>メール:</strong> ito.sanadamushi@gmail.com</p>
+                <div className="space-y-2 text-gray-800 text-base">
+                  <p><strong>メール:</strong> <a href="mailto:ito.sanadamushi@gmail.com" className="text-primary hover:underline">ito.sanadamushi@gmail.com</a></p>
                 </div>
               </div>
             </div>
